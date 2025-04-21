@@ -6,6 +6,7 @@
     <title>Think - @yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     @include('adminTheme.style')
@@ -27,7 +28,6 @@
 
     <!-- Back to top button -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
     @include('adminTheme.script')
     @yield('script')
 

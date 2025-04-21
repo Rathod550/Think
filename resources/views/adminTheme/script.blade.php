@@ -14,5 +14,6 @@
 <script src="{{ asset('adminTheme/assets/js/toastr.min.js') }}"></script>
 <script src="{{ asset('adminTheme/assets/js/dataTables.min.js') }}"></script>
 <script src="{{ asset('adminTheme/assets/js/bootstrap4.min.js') }}"></script>
+<script src="{{ asset('adminTheme/pageLevel/js/delete.js') }}"></script>
 
 

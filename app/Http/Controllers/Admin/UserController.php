@@ -18,7 +18,8 @@ class UserController extends AdminController
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){     
-                        $btn = '<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>';
+                        $btn = '<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
+                        $btn = $btn.'<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.user.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action'])
@@ -81,4 +82,15 @@ class UserController extends AdminController
         notificationMsg('info','User Updated Successfully');
         return redirect()->route('admin.users');
     }
+
+    public function delete($id)
+    {
+        info('ok');
+
+        // Optional: perform the delete
+        // User::findOrFail($id)->delete();
+
+        return response()->json(['message' => 'User deleted successfully']);
+    }
+
 }
