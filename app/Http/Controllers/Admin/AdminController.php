@@ -20,7 +20,7 @@ class AdminController extends Controller
             case 'delete':
                 return $module . ' deleted successfully';
                 break;
-            case 'update':
+            case 'info':
                 return $module . ' updated successfully';
                 break;
             

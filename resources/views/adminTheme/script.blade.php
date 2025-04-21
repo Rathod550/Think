@@ -1,4 +1,5 @@
 <!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('adminTheme/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('adminTheme/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('adminTheme/assets/vendor/chart.js/chart.umd.js') }}"></script>
@@ -10,3 +11,8 @@
 
 <!-- Template Main JS File -->
 <script src="{{ asset('adminTheme/assets/js/main.js') }}"></script>
+<script src="{{ asset('adminTheme/assets/js/toastr.min.js') }}"></script>
+<script src="{{ asset('adminTheme/assets/js/dataTables.min.js') }}"></script>
+<script src="{{ asset('adminTheme/assets/js/bootstrap4.min.js') }}"></script>
+
+

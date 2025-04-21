@@ -11,6 +11,13 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
+            <a class="nav-link {{ Request::is('admin/users*') ? '' : 'collapsed' }}" href="{{ route('admin.users') }}">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span>Users</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -27,13 +34,6 @@
                 </li>
             </ul>
         </li><!-- End Tables Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('admin/slider*') ? '' : 'collapsed' }}" href="{{ route('admin.slider') }}">
-                <i class="bi bi-menu-button-wide"></i>
-                <span>Slider</span>
-            </a>
-        </li><!-- End Profile Page Nav -->
 
     </ul>
 
