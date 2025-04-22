@@ -10,12 +10,23 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('admin/users*') ? '' : 'collapsed' }}" href="{{ route('admin.users') }}">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span>Users</span>
-            </a>
-        </li>
+        @if(auth()->user()->can('User List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/users*') ? '' : 'collapsed' }}" href="{{ route('admin.users') }}">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+        @endif
+
+        @if(auth()->user()->can('User Role List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/roles*') ? '' : 'collapsed' }}" href="{{ route('admin.roles') }}">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span>Roles</span>
+                </a>
+            </li>
+        @endif
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

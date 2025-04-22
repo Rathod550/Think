@@ -18,7 +18,7 @@
 						  			<h5 class="card-title">Users Create</h5>
 								</div>
 								<div class="col-md-6">
-									<a href="{{ route('admin.users') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="ri-arrow-left-fill"></i></a>
+									<a href="{{ route('admin.users') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 								</div>
 							</div>
 

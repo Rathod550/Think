@@ -7,22 +7,38 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use DataTables;
+use Spatie\Permission\Models\Role;
+use DB;
 
 class UserController extends AdminController
 {
     public function index(Request $request)
     {
-
         if ($request->ajax()) {
-            $data = User::select('*');
+            $data = User::select('*')->where('email', '!=', 'admin@gmail.com');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){     
-                        $btn = '<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
-                        $btn = $btn.'<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.user.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
+
+                        $btn = '';
+
+                        if(!auth()->user()->can('User Edit') && !auth()->user()->can('User Delete')){
+                            $btn .='<span class="text-danger"><i class="fa fa-ban" aria-hidden="true"></i> Access denied</span>';
+                        }else{
+                            if (auth()->user()->can('User Edit')) {
+                                $btn .= '<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
+                            }
+                            if (auth()->user()->can('User Delete')) {
+                                $btn .= '<a href="'.route('admin.user.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.user.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
+                            }
+                        }
+
                         return $btn;
                     })
-                    ->rawColumns(['action'])
+                    ->addColumn('role', function ($user) {
+                        return optional($user->roles->first())->name ?? '-'; 
+                    })
+                    ->rawColumns(['action', 'role'])
                     ->make(true);
         }
         return view('admin.user.index');
@@ -30,7 +46,8 @@ class UserController extends AdminController
 
     public function create()
     {
-        return view('admin.user.create');
+        $roles = Role::pluck('name','name')->all();
+        return view('admin.user.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -41,14 +58,16 @@ class UserController extends AdminController
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required',
-            // 'password' => 'required|string|min:8|confirmed',
+            'roles' => 'required',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->password)
         ]);
+
+        $user->assignRole($request->roles);
 
         notificationMsg('success','User Created Successfully');
         return redirect()->route('admin.users');
@@ -57,7 +76,9 @@ class UserController extends AdminController
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.user.edit', compact('user'));
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name')->first();
+        return view('admin.user.edit', compact('user', 'roles', 'userRole'));
     }
 
     public function update(Request $request, $id)
@@ -79,18 +100,50 @@ class UserController extends AdminController
 
         $user->update($data);
 
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+        $user->assignRole($request->roles);
+
         notificationMsg('info','User Updated Successfully');
         return redirect()->route('admin.users');
     }
 
     public function delete($id)
     {
-        info('ok');
+        User::find($id)->delete();
+        notificationMsg('error','User Deleted Successfully');
+    }
 
-        // Optional: perform the delete
-        // User::findOrFail($id)->delete();
+    public function profile($id)
+    {
+        $user = User::find($id);
+        return view('admin.user.profile', compact('user'));
+    }
 
-        return response()->json(['message' => 'User deleted successfully']);
+    public function profileUpdate(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable',
+        ]);
+
+        $data = ['name' => $request->name, 'email' => $request->email];
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('profile')) {
+            $avatarPath = $request->file('profile')->store('profile', 'public');
+            $data['profile'] = $avatarPath;
+        }
+
+        $user->update($data);
+
+        notificationMsg('info','User Profile Updated Successfully');
+        return redirect()->route('admin.profile', [$user->id]);
     }
 
 }

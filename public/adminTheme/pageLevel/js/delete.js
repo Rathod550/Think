@@ -1,4 +1,3 @@
-// Setup CSRF token globally for all AJAX requests
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -10,18 +9,37 @@ $(document).on("click", ".delete-btn", function(e) {
 
     var url = $(this).data('route');
 
-    if (confirm("Are you sure you want to delete this item?")) {
-        $.ajax({
-            url: url,
-            type: 'DELETE',
-            success: function(response) {
-                alert('Item deleted successfully');
-                location.reload(); // or remove element dynamically
-            },
-            error: function(xhr) {
-                alert("Something went wrong! Status: " + xhr.status);
-                console.error(xhr.responseText);
-            }
-        });
-    }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                success: function() {
+                    Swal.fire(
+                        'Deleted!',
+                        'Item has been deleted.',
+                        'success'
+                    ).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(xhr) {
+                    Swal.fire(
+                        'Oops...',
+                        'Something went wrong! Status: ' + xhr.status,
+                        'error'
+                    );
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+    });
 });

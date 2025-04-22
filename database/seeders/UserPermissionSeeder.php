@@ -1,0 +1,81 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+
+class UserPermissionSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $data = [
+
+            // user menu
+            [
+                'name'=>'User List',
+                'guard_name'=>'web',
+                'group_name'=>'User',
+            ],
+            [
+                'name'=>'User Create',
+                'guard_name'=>'web',
+                'group_name'=>'User',
+            ],
+            [
+                'name'=>'User Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User',
+            ],
+            [
+                'name'=>'User Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User',
+            ],
+
+            // Role Menu
+            [
+                'name'=>'User Role List',
+                'guard_name'=>'web',
+                'group_name'=>'User Role',
+            ],
+            [
+                'name'=>'User Role Create',
+                'guard_name'=>'web',
+                'group_name'=>'User Role',
+            ],
+            [
+                'name'=>'User Role Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User Role',
+            ],
+            [
+                'name'=>'User Role Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User Role',
+            ],
+            [
+                'name'=>'User Role Manage Permission',
+                'guard_name'=>'web',
+                'group_name'=>'User Role',
+            ],
+            
+        ];
+
+        foreach ($data as $key => $value) {
+            $find = Permission::where('name', $value['name'])->where('guard_name',$value['guard_name'])->first();
+            
+            if((!empty($find))) {
+                $find->update($value);
+            }
+
+            if (is_null($find)) {
+                Permission::create($value);
+            }
+        }
+    }
+}

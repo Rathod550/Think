@@ -29,7 +29,17 @@
         </div>
     </div>
     <div class="col-md-6">
-        
+        <div class="form-group">
+            <label>Role: <span class="text-danger">*</span></label><br>
+            @if(!empty($userRole))
+                {{ Form::select('roles', $roles, old('roles', $userRole), ['class' => 'form-control form-select', 'placeholder' => 'Select Roles']) }}
+            @else
+                {{ Form::select('roles', $roles, '', ['class' => 'form-control form-select', 'placeholder' => 'Select Roles']) }}
+            @endif
+            @error('roles')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>  
     </div>
 </div>
 <div class="row">
