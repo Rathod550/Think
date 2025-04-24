@@ -63,6 +63,28 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User Role',
             ],
+
+            // Note Menu
+            [
+                'name'=>'User Note List',
+                'guard_name'=>'web',
+                'group_name'=>'User Note',
+            ],
+            [
+                'name'=>'User Note Create',
+                'guard_name'=>'web',
+                'group_name'=>'User Note',
+            ],
+            [
+                'name'=>'User Note Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User Note',
+            ],
+            [
+                'name'=>'User Note Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User Note',
+            ]
             
         ];
 

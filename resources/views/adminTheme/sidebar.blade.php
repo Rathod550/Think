@@ -28,6 +28,13 @@
             </li>
         @endif
 
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('admin/notes*') ? '' : 'collapsed' }}" href="{{ route('admin.notes') }}">
+                <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+                <span>Notes</span>
+            </a>
+        </li>
+
         {{--  <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>

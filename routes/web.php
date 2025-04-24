@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\EditPermissionController;
+use App\Http\Controllers\Admin\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,4 +52,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	// EditPermissionController
 	Route::get('roles-permission/{id}/edit', [EditPermissionController::class, 'edit'])->name('admin.roles.permission.edit')->middleware('permission:User Role Manage Permission');
 	Route::put('roles-permission/{id}/update', [EditPermissionController::class, 'permissionSet'])->name('admin.roles.permission.update');
+
+	// NoteController
+	Route::get('/notes', [NoteController::class, 'index'])->name('admin.notes')->middleware('permission:User Note List');
+	Route::get('/notes/create', [NoteController::class, 'create'])->name('admin.notes.create')->middleware('permission:User Note Create');
+	Route::post('/notes/store', [NoteController::class, 'store'])->name('admin.notes.store');
+	Route::get('/notes/{id}/edit', [NoteController::class, 'edit'])->name('admin.notes.edit')->middleware('permission:User Note Edit');
+	Route::put('/notes/{id}/update', [NoteController::class, 'update'])->name('admin.notes.update');
+	Route::delete('/notes/{id}/delete', [NoteController::class, 'delete'])->name('admin.notes.delete')->middleware('permission:User Note Delete');
 });
