@@ -38,7 +38,18 @@ class UserController extends AdminController
                     ->addColumn('role', function ($user) {
                         return optional($user->roles->first())->name ?? '-'; 
                     })
-                    ->rawColumns(['action', 'role'])
+                    ->addColumn('notification_status', function ($row) {
+                        $selectedYes = $row->notification_status == 1 ? 'selected' : '';
+                        $selectedNo = $row->notification_status == 0 ? 'selected' : '';
+                        $route = route('admin.users.set.notification.status');
+                        
+                        return '<select class="form-control form-select notification-status" data-id="' . $row->id . '" data-route="' . $route . '">
+                                    <option value="1" ' . $selectedYes . '>Yes</option>
+                                    <option value="0" ' . $selectedNo . '>No</option>
+                                </select>';
+                    })
+
+                    ->rawColumns(['action', 'role', 'notification_status'])
                     ->make(true);
         }
         return view('admin.user.index');
@@ -159,6 +170,12 @@ class UserController extends AdminController
 
         notificationMsg('info','User Profile Updated Successfully');
         return redirect()->route('admin.profile', [$user->id]);
+    }
+
+    public function setNotificationStatus(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->update(['notification_status' => $request->notification_status]);
     }
 
 }

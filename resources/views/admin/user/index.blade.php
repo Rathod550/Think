@@ -33,7 +33,8 @@
 							                <th width="20%">Name</th>
 							                <th width="20%">Email</th>
 							                <th width="20%">Role</th>
-							                <th width="30%">Action</th>
+							                <th width="10%">Notifaction</th>
+							                <th width="20%">Action</th>
 							            </tr>
 							        </thead>
 							        <tbody>
@@ -70,6 +71,7 @@
 		            {data: 'name', name: 'name'},
 		            {data: 'email', name: 'email'},
 		            {data: 'role', name: 'role'},
+		            {data: 'notification_status', name: 'role'},
 		            {data: 'action', name: 'action', orderable: false, searchable: false},
 		        ]
 		    });

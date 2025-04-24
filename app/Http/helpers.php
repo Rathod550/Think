@@ -31,7 +31,7 @@ function sendNotification($actionType, $message){
             break;
     }
 
-    $users = User::where('id', '!=', $user->id)->get();
+    $users = User::where('id', '!=', $user->id)->where('notification_status', 1)->get();
 
     if(!empty($users) && $users->count() > 0){
         foreach($users as $key => $value){

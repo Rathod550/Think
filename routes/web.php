@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::delete('/users/{id}/delete', [UserController::class, 'delete'])->name('admin.user.delete')->middleware('permission:User Delete');
 	Route::get('/profile/users/{id}', [UserController::class, 'profile'])->name('admin.profile');
 	Route::put('/users/{id}/profile/update', [UserController::class, 'profileUpdate'])->name('admin.profile.update');
+	Route::post('/users/set/notification/status', [UserController::class, 'setNotificationStatus'])->name('admin.users.set.notification.status');
 
 	// RoleController
 	Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles')->middleware('permission:User Role List');

@@ -14,3 +14,28 @@ $(document).on("click", ".bi-bell", function(){
         success: function() {},
     });
 });
+
+$(document).on("change", ".notification-status", function(){
+
+    var id = $(this).data('id');
+    var value = $(this).val();
+    var url = $(this).data('route');
+
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {
+            user_id:id,
+            notification_status:value
+        },
+        success: function(data) {
+            Swal.fire(
+                'Notification status!',
+                'Item has been updated.',
+                'success'
+            ).then(() => {
+                
+            });
+        },
+    });
+});
