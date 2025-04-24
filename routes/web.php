@@ -31,24 +31,24 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/dashboard', [AdminHomeController::class, 'index'])->name('dashboard');
 
 	// UserController
-	Route::get('/users', [UserController::class, 'index'])->name('admin.users');
-	Route::get('/users/create', [UserController::class, 'create'])->name('admin.user.create');
+	Route::get('/users', [UserController::class, 'index'])->name('admin.users')->middleware('permission:User List');
+	Route::get('/users/create', [UserController::class, 'create'])->name('admin.user.create')->middleware('permission:User Create');
 	Route::post('/users/store', [UserController::class, 'store'])->name('admin.user.store');
-	Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
+	Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('admin.user.edit')->middleware('permission:User Edit');
 	Route::put('/users/{id}/update', [UserController::class, 'update'])->name('admin.user.update');
-	Route::delete('/users/{id}/delete', [UserController::class, 'delete'])->name('admin.user.delete');
+	Route::delete('/users/{id}/delete', [UserController::class, 'delete'])->name('admin.user.delete')->middleware('permission:User Delete');
 	Route::get('/profile/users/{id}', [UserController::class, 'profile'])->name('admin.profile');
 	Route::put('/users/{id}/profile/update', [UserController::class, 'profileUpdate'])->name('admin.profile.update');
 
 	// RoleController
-	Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles');
-	Route::get('/roles/create', [RoleController::class, 'create'])->name('admin.roles.create');
+	Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles')->middleware('permission:User Role List');
+	Route::get('/roles/create', [RoleController::class, 'create'])->name('admin.roles.create')->middleware('permission:User Role Create');
 	Route::post('/roles/store', [RoleController::class, 'store'])->name('admin.roles.store');
-	Route::get('/roles/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit');
+	Route::get('/roles/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit')->middleware('permission:Role Edit');
 	Route::put('/roles/{id}/update', [RoleController::class, 'update'])->name('admin.roles.update');
-	Route::delete('/roles/{id}/delete', [RoleController::class, 'delete'])->name('admin.roles.delete');
+	Route::delete('/roles/{id}/delete', [RoleController::class, 'delete'])->name('admin.roles.delete')->middleware('permission:User Role Delete');
 
 	// EditPermissionController
-	Route::get('roles-permission/{id}/edit', [EditPermissionController::class, 'edit'])->name('admin.roles.permission.edit');
+	Route::get('roles-permission/{id}/edit', [EditPermissionController::class, 'edit'])->name('admin.roles.permission.edit')->middleware('permission:User Role Manage Permission');
 	Route::put('roles-permission/{id}/update', [EditPermissionController::class, 'permissionSet'])->name('admin.roles.permission.update');
 });
