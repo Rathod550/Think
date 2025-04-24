@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\EditPermissionController;
 use App\Http\Controllers\Admin\NoteController;
+use App\Http\Controllers\Admin\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +61,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/notes/{id}/edit', [NoteController::class, 'edit'])->name('admin.notes.edit')->middleware('permission:User Note Edit');
 	Route::put('/notes/{id}/update', [NoteController::class, 'update'])->name('admin.notes.update');
 	Route::delete('/notes/{id}/delete', [NoteController::class, 'delete'])->name('admin.notes.delete')->middleware('permission:User Note Delete');
+
+	// NotificationController
+	Route::get('/remove-bell-number', [NotificationController::class, 'removeBellNumber'])->name('admin.remove.bell.number');
 });

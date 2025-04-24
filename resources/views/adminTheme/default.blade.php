@@ -8,6 +8,17 @@
     <meta content="" name="keywords">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <style>
+        @keyframes blink {
+          0% { opacity: 1; }
+          50% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+
+        .blink {
+          animation: blink 1s infinite;
+        }
+    </style>
 
     @include('adminTheme.style')
     @yield('style')

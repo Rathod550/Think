@@ -15,6 +15,7 @@
 <script src="{{ asset('adminTheme/assets/js/dataTables.min.js') }}"></script>
 <script src="{{ asset('adminTheme/assets/js/bootstrap4.min.js') }}"></script>
 <script src="{{ asset('adminTheme/pageLevel/js/delete.js') }}"></script>
+<script src="{{ asset('adminTheme/pageLevel/js/notification.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 

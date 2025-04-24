@@ -61,6 +61,10 @@ class UserController extends AdminController
             'roles' => 'required',
         ]);
 
+        // send notification
+        $message = 'New User '.$request->name;
+        sendNotification(0, $message);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -98,6 +102,10 @@ class UserController extends AdminController
             $data['password'] = Hash::make($request->password);
         }
 
+        // send notification
+        $message = 'User '.$request->name;
+        sendNotification(1, $message);
+
         $user->update($data);
 
         DB::table('model_has_roles')->where('model_id',$id)->delete();
@@ -109,7 +117,14 @@ class UserController extends AdminController
 
     public function delete($id)
     {
-        User::find($id)->delete();
+        $user = User::find($id);
+        $userName = $user->name;
+        $user->delete();
+
+        // send notification
+        $message = 'User '.$userName;
+        sendNotification(2, $message);
+        
         notificationMsg('error','User Deleted Successfully');
     }
 
