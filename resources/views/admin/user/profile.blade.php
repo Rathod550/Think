@@ -22,7 +22,7 @@
 							<div class="row">
 								<div class="col-md-4">
 									@if(!empty($user->profile) && $user->profile)
-									    <center style="margin-top:30px; "> <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle" width="150" height="150" />
+									    <center style="margin-top:30px; "> <img src="{{ asset($user->profile) }}" class="rounded-circle" width="150" height="150" />
 		                                    <h4 class="card-title">{{ auth()->user()->name }} ({{ auth()->user()->getRoleNames()->first() ?? 'No Role Assigned' }})</h4>
 		                                </center>
 									@else

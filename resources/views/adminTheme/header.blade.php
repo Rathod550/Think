@@ -82,7 +82,7 @@
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     @if(!empty(auth()->user()->profile) && auth()->user()->profile)
-                        <img src="{{ asset('storage/' . auth()->user()->profile) }}" alt="Profile" class="rounded-circle" width="42" height="42">
+                        <img src="{{ asset(auth()->user()->profile) }}" alt="Profile" class="rounded-circle" width="42" height="42">
                     @else
                         <img src="{{ asset('adminTheme/assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle" width="42" height="42">
                     @endif
