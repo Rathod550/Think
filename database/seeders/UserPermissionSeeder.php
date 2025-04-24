@@ -36,6 +36,11 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User',
             ],
+            [
+                'name'=>'User Notification Status',
+                'guard_name'=>'web',
+                'group_name'=>'User',
+            ],
 
             // Role Menu
             [

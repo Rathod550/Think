@@ -39,14 +39,18 @@ class UserController extends AdminController
                         return optional($user->roles->first())->name ?? '-'; 
                     })
                     ->addColumn('notification_status', function ($row) {
-                        $selectedYes = $row->notification_status == 1 ? 'selected' : '';
-                        $selectedNo = $row->notification_status == 0 ? 'selected' : '';
-                        $route = route('admin.users.set.notification.status');
-                        
-                        return '<select class="form-control form-select notification-status" data-id="' . $row->id . '" data-route="' . $route . '">
-                                    <option value="1" ' . $selectedYes . '>Yes</option>
-                                    <option value="0" ' . $selectedNo . '>No</option>
-                                </select>';
+                        if (auth()->user()->can('User Notification Status')) {
+                            $selectedYes = $row->notification_status == 1 ? 'selected' : '';
+                            $selectedNo = $row->notification_status == 0 ? 'selected' : '';
+                            $route = route('admin.users.set.notification.status');
+                            
+                            return '<select class="form-control form-select notification-status" data-id="' . $row->id . '" data-route="' . $route . '">
+                                        <option value="1" ' . $selectedYes . '>Yes</option>
+                                        <option value="0" ' . $selectedNo . '>No</option>
+                                    </select>';
+                        }else{
+                            return $row->notification_status == 1 ? 'Yes' : 'No';
+                        }
                     })
 
                     ->rawColumns(['action', 'role', 'notification_status'])
