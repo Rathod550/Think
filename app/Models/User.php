@@ -25,6 +25,7 @@ class User extends Authenticatable
         'password',
         'profile',
         'notification_status',
+        'role_id',
     ];
 
     /**

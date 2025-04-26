@@ -41,6 +41,11 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User',
             ],
+            [
+                'name'=>'User Login As',
+                'guard_name'=>'web',
+                'group_name'=>'User',
+            ],
 
             // Role Menu
             [
@@ -89,7 +94,34 @@ class UserPermissionSeeder extends Seeder
                 'name'=>'User Note Delete',
                 'guard_name'=>'web',
                 'group_name'=>'User Note',
-            ]
+            ],
+
+            // Blog Category Menu
+            [
+                'name'=>'User Blog Category List',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Create',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Status',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
             
         ];
 

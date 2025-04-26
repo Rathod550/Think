@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use DataTables;
 use Spatie\Permission\Models\Role;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends AdminController
 {
@@ -22,14 +23,17 @@ class UserController extends AdminController
 
                         $btn = '';
 
-                        if(!auth()->user()->can('User Edit') && !auth()->user()->can('User Delete')){
+                        if(!auth()->user()->can('User Edit') && !auth()->user()->can('User Delete') && !auth()->user()->can('User Login As')){
                             $btn .='<span class="text-danger"><i class="fa fa-ban" aria-hidden="true"></i> Access denied</span>';
                         }else{
                             if (auth()->user()->can('User Edit')) {
                                 $btn .= '<a href="'.route('admin.user.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
                             }
                             if (auth()->user()->can('User Delete')) {
-                                $btn .= '<a href="'.route('admin.user.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.user.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
+                                $btn .= '<a href="'.route('admin.user.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.user.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a> ';
+                            }
+                            if(auth()->user()->can('User Login As')){
+                                $btn .= '<a href="'.route('admin.user.login.as', [$row->id]).'" class="edit btn btn-dark btn-sm"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> ';
                             }
                         }
 
@@ -189,6 +193,13 @@ class UserController extends AdminController
     {
         $user = User::find($request->user_id);
         $user->update(['notification_status' => $request->notification_status]);
+    }
+
+    public function loginAs($id)
+    {
+        $user = User::findOrFail($id);
+        Auth::login($user);
+        return redirect()->route('dashboard');
     }
 
 }

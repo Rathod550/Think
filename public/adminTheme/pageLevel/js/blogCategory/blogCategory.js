@@ -3,7 +3,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-$(document).on("change", ".notification-status", function(){
+$(document).on("change", ".blog-category-status", function(){
 
     var id = $(this).data('id');
     var value = $(this).val();
@@ -13,12 +13,12 @@ $(document).on("change", ".notification-status", function(){
         url: url,
         type: 'post',
         data: {
-            user_id:id,
-            notification_status:value
+            id:id,
+            status:value
         },
         success: function(data) {
             Swal.fire(
-                'Notification status!',
+                'Blog Category status!',
                 'Item has been updated.',
                 'success'
             ).then(() => {

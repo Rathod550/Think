@@ -28,12 +28,23 @@
             </li>
         @endif
 
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('admin/notes*') ? '' : 'collapsed' }}" href="{{ route('admin.notes') }}">
-                <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
-                <span>Notes</span>
-            </a>
-        </li>
+        @if(auth()->user()->can('User Blog Category List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/blog-category*') ? '' : 'collapsed' }}" href="{{ route('admin.blog.category') }}">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    <span>Blog Category</span>
+                </a>
+            </li>
+        @endif
+
+        @if(auth()->user()->can('User Note List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/notes*') ? '' : 'collapsed' }}" href="{{ route('admin.notes') }}">
+                    <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+                    <span>Notes</span>
+                </a>
+            </li>
+        @endif
 
         {{--  <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

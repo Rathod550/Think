@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\EditPermissionController;
 use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/profile/users/{id}', [UserController::class, 'profile'])->name('admin.profile');
 	Route::put('/users/{id}/profile/update', [UserController::class, 'profileUpdate'])->name('admin.profile.update');
 	Route::post('/users/set/notification/status', [UserController::class, 'setNotificationStatus'])->name('admin.users.set.notification.status');
+	Route::get('/users/{id}/login/as', [UserController::class, 'loginAs'])->name('admin.user.login.as')->middleware('permission:User Login As');
 
 	// RoleController
 	Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles')->middleware('permission:User Role List');
@@ -65,4 +67,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
 	// NotificationController
 	Route::get('/remove-bell-number', [NotificationController::class, 'removeBellNumber'])->name('admin.remove.bell.number');
+
+	// BlogCategoryController
+	Route::get('/blog-category', [BlogCategoryController::class, 'index'])->name('admin.blog.category')->middleware('permission:User Blog Category List');
+	Route::get('/blog-category/create', [BlogCategoryController::class, 'create'])->name('admin.blog.category.create')->middleware('permission:User Blog Category Create');
+	Route::post('/blog-category/store', [BlogCategoryController::class, 'store'])->name('admin.blog.category.store');
+	Route::get('/blog-category/{id}/edit', [BlogCategoryController::class, 'edit'])->name('admin.blog.category.edit')->middleware('permission:User Blog Category Edit');
+	Route::put('/blog-category/{id}/update', [BlogCategoryController::class, 'update'])->name('admin.blog.category.update');
+	Route::delete('/blog-category/{id}/delete', [BlogCategoryController::class, 'delete'])->name('admin.blog.category.delete')->middleware('permission:User Blog Category Delete');
+	Route::post('/blog-category/status', [BlogCategoryController::class, 'setBlogCategoryStatus'])->name('admin.set.blog.category.status')->middleware('permission:User Blog Category Status');
 });
