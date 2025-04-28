@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Http\Request;
 use App\Models\Note;
+use Illuminate\Validation\Rule;
 
 class NoteController extends AdminController
 {
@@ -28,7 +29,7 @@ class NoteController extends AdminController
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|unique:notes,title',
+            'title' => ['required', 'max:255', Rule::unique('notes', 'title')->whereNull('deleted_at')],
             'description' => 'required'
         ]);
 
@@ -53,7 +54,7 @@ class NoteController extends AdminController
         $note = Note::findOrFail($id);
 
         $request->validate([
-            'title' => 'required|max:255|unique:notes,title,'.$note->id,
+            'title' => ['required', 'max:255', Rule::unique('notes', 'title')->ignore($note->id)->whereNull('deleted_at')],
             'description' => 'required'
         ]);
 

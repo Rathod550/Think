@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\EditPermissionController;
 use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\TraficEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,13 +44,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/profile/users/{id}', [UserController::class, 'profile'])->name('admin.profile');
 	Route::put('/users/{id}/profile/update', [UserController::class, 'profileUpdate'])->name('admin.profile.update');
 	Route::post('/users/set/notification/status', [UserController::class, 'setNotificationStatus'])->name('admin.users.set.notification.status');
+	Route::get('/notifications', [UserController::class, 'notifications'])->name('admin.users.notifications');
 	Route::get('/users/{id}/login/as', [UserController::class, 'loginAs'])->name('admin.user.login.as')->middleware('permission:User Login As');
 
 	// RoleController
 	Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles')->middleware('permission:User Role List');
 	Route::get('/roles/create', [RoleController::class, 'create'])->name('admin.roles.create')->middleware('permission:User Role Create');
 	Route::post('/roles/store', [RoleController::class, 'store'])->name('admin.roles.store');
-	Route::get('/roles/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit')->middleware('permission:Role Edit');
+	Route::get('/roles/{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit')->middleware('permission:User Role Edit');
 	Route::put('/roles/{id}/update', [RoleController::class, 'update'])->name('admin.roles.update');
 	Route::delete('/roles/{id}/delete', [RoleController::class, 'delete'])->name('admin.roles.delete')->middleware('permission:User Role Delete');
 
@@ -76,4 +78,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::put('/blog-category/{id}/update', [BlogCategoryController::class, 'update'])->name('admin.blog.category.update');
 	Route::delete('/blog-category/{id}/delete', [BlogCategoryController::class, 'delete'])->name('admin.blog.category.delete')->middleware('permission:User Blog Category Delete');
 	Route::post('/blog-category/status', [BlogCategoryController::class, 'setBlogCategoryStatus'])->name('admin.set.blog.category.status')->middleware('permission:User Blog Category Status');
+
+	// TraficEmailController
+	Route::get('/trafic-email', [TraficEmailController::class, 'index'])->name('admin.trafic.email')->middleware('permission:User Trafic Email List');
+	Route::get('/trafic-email/create', [TraficEmailController::class, 'create'])->name('admin.trafic.email.create')->middleware('permission:User Trafic Email Create');
+	Route::post('/trafic-email/store', [TraficEmailController::class, 'store'])->name('admin.trafic.email.store');
+	Route::get('/trafic-email/{id}/edit', [TraficEmailController::class, 'edit'])->name('admin.trafic.email.edit')->middleware('permission:User Trafic Email Edit');
+	Route::put('/trafic-email/{id}/update', [TraficEmailController::class, 'update'])->name('admin.trafic.email.update');
+	Route::delete('/trafic-email/{id}/delete', [TraficEmailController::class, 'delete'])->name('admin.trafic.email.delete')->middleware('permission:User Trafic Email Delete');
 });

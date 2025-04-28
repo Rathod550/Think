@@ -37,6 +37,15 @@
             </li>
         @endif
 
+        @if(auth()->user()->can('User Trafic Email List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/trafic-email*') ? '' : 'collapsed' }}" href="{{ route('admin.trafic.email') }}">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>Trafic Email</span>
+                </a>
+            </li>
+        @endif
+
         @if(auth()->user()->can('User Note List'))
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/notes*') ? '' : 'collapsed' }}" href="{{ route('admin.notes') }}">

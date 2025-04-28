@@ -41,7 +41,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
                     <li class="dropdown-header">
                         You have {{ $newNotificationCount }} new notifications
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                        <a href="{{ route('admin.users.notifications') }}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
                     </li>
                     @if(!empty($notifications) && $notifications->count() > 0)
                         @foreach($notifications as $key => $value)
@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="dropdown-footer">
-                        <a href="#">Show all notifications</a>
+                        <a href="{{ route('admin.users.notifications') }}">Show all notifications</a>
                     </li>
 
                 </ul><!-- End Notification Dropdown Items -->

@@ -122,6 +122,28 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User Blog Category',
             ],
+
+            // Role Menu
+            [
+                'name'=>'User Trafic Email List',
+                'guard_name'=>'web',
+                'group_name'=>'User Trafic Email',
+            ],
+            [
+                'name'=>'User Trafic Email Create',
+                'guard_name'=>'web',
+                'group_name'=>'User Trafic Email',
+            ],
+            [
+                'name'=>'User Trafic Email Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User Trafic Email',
+            ],
+            [
+                'name'=>'User Trafic Email Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User Trafic Email',
+            ],
             
         ];
 

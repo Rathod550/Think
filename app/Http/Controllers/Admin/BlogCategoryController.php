@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
 use App\Models\BlogCategory;
 use DataTables;
+use Illuminate\Validation\Rule;
 
 class BlogCategoryController extends AdminController
 {
@@ -62,7 +63,7 @@ class BlogCategoryController extends AdminController
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255|unique:blog_categories,name',
+            'name' => ['required', 'max:255' ,Rule::unique('blog_categories', 'name')->whereNull('deleted_at')]
         ]);
 
         BlogCategory::create(['name' => $request->name]);
@@ -82,7 +83,7 @@ class BlogCategoryController extends AdminController
         $blogCategory = BlogCategory::find($id);
 
         $request->validate([
-            'name' => 'required|max:255|unique:blog_categories,name,'.$blogCategory->id,
+            'name' => ['required', 'max:255', Rule::unique('blog_categories', 'name')->ignore($blogCategory->id)->whereNull('deleted_at')],
         ]);
 
         $blogCategory->update(['name' => $request->name]);

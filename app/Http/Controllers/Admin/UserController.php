@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Hash;
 use DataTables;
 use Spatie\Permission\Models\Role;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UserController extends AdminController
 {
@@ -75,10 +77,11 @@ class UserController extends AdminController
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->whereNull('deleted_at')],
             'password' => 'required',
             'roles' => 'required',
         ]);
+
 
         // send notification
         $message = 'New User '.$request->name;
@@ -110,7 +113,7 @@ class UserController extends AdminController
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'email' => ['required', 'string', 'email', 'max:255' ,Rule::unique('users', 'email')->ignore($user->id)->whereNull('deleted_at')],
             // 'password' => 'nullable|string|min:8',
             'password' => 'nullable',
         ]);
@@ -200,6 +203,22 @@ class UserController extends AdminController
         $user = User::findOrFail($id);
         Auth::login($user);
         return redirect()->route('dashboard');
+    }
+
+    public function notifications(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Notification::where('notifications.receiver_id', auth()->user()->id)
+                ->join('users', 'notifications.sender_id', '=', 'users.id')
+                ->select('notifications.*', 'users.name as sender_name')
+                ->latest('notifications.created_at');
+
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->rawColumns(['message'])
+                    ->make(true);
+        }
+        return view('admin.notification.index');        
     }
 
 }

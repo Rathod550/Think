@@ -53,8 +53,9 @@ class RoleController extends AdminController
         $input = $request->all();
 
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:roles,name',
         ]);
+
 
         Role::create([
             'name' => $request->name,
@@ -75,7 +76,7 @@ class RoleController extends AdminController
         $role = Role::find($id);
 
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:roles,name,'.$role->id,
         ]);
 
         $role->update(['name' => $request->name]);
