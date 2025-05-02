@@ -21,6 +21,9 @@
 									@if(auth()->user()->can('User Trafic Email Create'))
 										<a href="{{ route('admin.trafic.email.create') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i></a>
 									@endif	
+									@if(auth()->user()->can('User Trafic Email Import'))
+										<a href="{{ route('admin.trafic.email.import.create') }}" type="button" class="btn btn-dark btn-sm mt-3" style="float: right; margin-right: 10px;"><i class="fa fa-upload" aria-hidden="true"></i> Import Excel</a>
+									@endif	
 								</div>
 							</div>
 

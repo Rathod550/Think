@@ -86,4 +86,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/trafic-email/{id}/edit', [TraficEmailController::class, 'edit'])->name('admin.trafic.email.edit')->middleware('permission:User Trafic Email Edit');
 	Route::put('/trafic-email/{id}/update', [TraficEmailController::class, 'update'])->name('admin.trafic.email.update');
 	Route::delete('/trafic-email/{id}/delete', [TraficEmailController::class, 'delete'])->name('admin.trafic.email.delete')->middleware('permission:User Trafic Email Delete');
+	Route::get('/trafic-email/import/create', [TraficEmailController::class, 'importCreate'])->name('admin.trafic.email.import.create')->middleware('permission:User Trafic Email Import');
+	Route::post('/trafic-email/import/store', [TraficEmailController::class, 'importStore'])->name('admin.trafic.email.excel.store');
 });

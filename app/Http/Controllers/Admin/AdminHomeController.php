@@ -8,6 +8,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Models\BlogCategory;
 use App\Models\Note;
+use App\Models\TraficEmail;
 
 class AdminHomeController extends AdminController
 {
@@ -21,7 +22,8 @@ class AdminHomeController extends AdminController
         }else{
             $userNoteCount = Note::where('user_id', auth()->user()->id)->count();
         }
+        $traficEmails = TraficEmail::count();
 
-        return view('admin.dashboard', compact('userCount', 'userRoleCount', 'userBlogCategoryCount', 'userNoteCount'));
+        return view('admin.dashboard', compact('userCount', 'userRoleCount', 'userBlogCategoryCount', 'userNoteCount', 'traficEmails'));
     }
 }

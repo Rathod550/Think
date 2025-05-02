@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\AdminController;
 use DataTables;
 use App\Models\TraficEmail;
 use Illuminate\Validation\Rule;
+use App\Imports\TraficEmailImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TraficEmailController extends AdminController
 {
@@ -80,5 +82,28 @@ class TraficEmailController extends AdminController
     {
         TraficEmail::find($id)->delete();
         notificationMsg('error','Email Deleted Successfully');
+    }
+
+    public function importCreate()
+    {
+        return view('admin.traficEmail.importExcelCreate');
+    }
+
+    public function importStore(Request $request)
+    {
+        $request->validate([
+            'excel_file' => 'required'
+        ]);
+
+        $import = new TraficEmailImport;
+
+        Excel::import($import, request()->file('excel_file'));
+
+        if (!empty($import->reason)) {
+            return back()->withErrors(['errorInArray' => $import->reason]);
+        }
+
+        notificationMsg('success','Emails Created Successfully');
+        return redirect()->route('admin.trafic.email');
     }
 }

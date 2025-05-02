@@ -44,6 +44,6 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <center><button type="submit" class="btn btn-success btn-sm mt-3">Save</button></center>
+        <center><button type="submit" class="btn btn-success btn-sm mt-3 save-btn">Save</button></center>
     </div>
 </div>

@@ -144,6 +144,11 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User Trafic Email',
             ],
+            [
+                'name'=>'User Trafic Email Import',
+                'guard_name'=>'web',
+                'group_name'=>'User Trafic Email',
+            ],
             
         ];
 

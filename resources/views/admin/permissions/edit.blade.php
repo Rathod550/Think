@@ -49,7 +49,7 @@
                                     @endforeach
 	                            </div>
 	                            <div class="col-md-12 text-center mt-5">
-	                            	<button type="submit" class="btn btn-icon btn-success btn-sm">Save</button>
+	                            	<button type="submit" class="btn btn-icon btn-success btn-sm save-btn">Save</button>
 	                            </div>
 							{!! Form::close() !!}
 
