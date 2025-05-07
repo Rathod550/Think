@@ -48,8 +48,15 @@ class BlogCategoryController extends AdminController
                             return $row->status == 1 ? 'Yes' : 'No';
                         }
                     })
+                    ->addColumn('image', function ($row) {
+                        if(!empty($row->image)){
+                            return '<img src="'.asset($row->image).'" width="100" height="100">';
+                        }else{
+                            return '-';
+                        }
+                    })
 
-                    ->rawColumns(['action', 'status'])
+                    ->rawColumns(['action', 'status', 'image'])
                     ->make(true);
         }
         return view('admin.blogCategory.index');
@@ -63,10 +70,16 @@ class BlogCategoryController extends AdminController
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'max:255' ,Rule::unique('blog_categories', 'name')->whereNull('deleted_at')]
+            'name' => ['required', 'max:255' ,Rule::unique('blog_categories', 'name')->whereNull('deleted_at')],
+            'image' => 'required'
         ]);
 
-        BlogCategory::create(['name' => $request->name]);
+        if ($request->hasFile('image')) {
+            $profile = uploadImagePublic(public_path('category/image'), $request->file('image'));
+            $image = 'category/image/' . $profile;
+        }
+
+        BlogCategory::create(['name'=>$request->name, 'image' => $image ?? '']);
 
         notificationMsg('success','Blog Category Created Successfully');
         return redirect()->route('admin.blog.category');
@@ -80,17 +93,24 @@ class BlogCategoryController extends AdminController
 
     public function update(Request $request, $id)
     {
-        $blogCategory = BlogCategory::find($id);
+        $category = BlogCategory::findOrFail($id);
 
         $request->validate([
-            'name' => ['required', 'max:255', Rule::unique('blog_categories', 'name')->ignore($blogCategory->id)->whereNull('deleted_at')],
+            'name' => ['required', 'max:255', Rule::unique('blog_categories', 'name')->ignore($id)->whereNull('deleted_at')],
         ]);
 
-        $blogCategory->update(['name' => $request->name]);
+        $image = $category->image ?? '';
+        if ($request->hasFile('image')) {
+            $fileName = uploadImagePublic(public_path('category/image'), $request->file('image'));
+            $image = 'category/image/' . $fileName;
+        }
 
-        notificationMsg('info','Blog Category Updated Successfully');
+        $category->update(['name' => $request->name, 'image' => $image]);
+
+        notificationMsg('info', 'Blog Category Updated Successfully');
         return redirect()->route('admin.blog.category');
     }
+
 
     public function delete($id)
     {

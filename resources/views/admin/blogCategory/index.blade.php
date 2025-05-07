@@ -30,9 +30,10 @@
 							        <thead>
 							            <tr>
 							                <th width="10%">No</th>
-							                <th>Name</th>
-							                <th>Status</th>
-							                <th>Action</th>
+							                <th width="30%">Name</th>
+							                <th width="20%">Image</th>
+							                <th width="20%">Status</th>
+							                <th width="20%">Action</th>
 							            </tr>
 							        </thead>
 							        <tbody>
@@ -65,6 +66,7 @@
 			            searchable: false
 			        },
 		            {data: 'name', name: 'name'},
+		            {data: 'image', name: 'image'},
 		            {data: 'status', name: 'email'},
 		            {data: 'action', name: 'action', orderable: false, searchable: false},
 		        ]

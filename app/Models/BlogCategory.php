@@ -18,6 +18,7 @@ class BlogCategory extends Model
 
     protected $fillable = [
         'name',
-        'status'
+        'status',
+        'image'
     ];
 }

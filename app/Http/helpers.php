@@ -85,3 +85,15 @@ function dateHumanFormate($date){
 
     return $timeAgo;
 }
+
+function uploadImagePublic($path, $file){
+    $filename = time() . '_' . $file->getClientOriginalName();
+
+    // Create the directory if it doesn't exist
+    if (!file_exists($path)) {
+        mkdir($path, 0755, true);
+    }
+    $file->move($path, $filename);
+
+    return $filename;
+}

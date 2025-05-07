@@ -173,17 +173,8 @@ class UserController extends AdminController
         }
 
         if ($request->hasFile('profile')) {
-            $file = $request->file('profile');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $destinationPath = public_path('profile');
-
-            // Create the directory if it doesn't exist
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0755, true);
-            }
-            $file->move($destinationPath, $filename);
-
-            $data['profile'] = 'profile/' . $filename; // relative path
+            $profile = uploadImagePublic(public_path('profile'), $request->file('profile'));
+            $data['profile'] = 'profile/' . $profile;
         }
 
         $user->update($data);
