@@ -25,7 +25,7 @@ use App\Http\Controllers\Admin\TraficEmailController;
 
 Auth::routes();
 
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('post-login', [LoginController::class, 'userLogin'])->name('login.post');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
