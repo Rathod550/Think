@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::table('blog_categories', function (Blueprint $table) {
             $table->string('image')->nullable();
+            $table->integer('parent_id')->nullable();
+            $table->string('slug')->nullable();
         });
     }
 
@@ -22,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('blog_categories', function (Blueprint $table) {
-            $table->dropColumn(['image']);
+            $table->dropColumn(['image', 'parent_id', 'slug']);
         });
     }
 };

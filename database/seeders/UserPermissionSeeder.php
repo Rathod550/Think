@@ -123,6 +123,33 @@ class UserPermissionSeeder extends Seeder
                 'group_name'=>'User Blog Category',
             ],
 
+            // Blog Category Sub Menu
+            [
+                'name'=>'User Blog Category Sub List',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Sub Create',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Sub Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Sub Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+            [
+                'name'=>'User Blog Category Sub Status',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog Category',
+            ],
+
             // Role Menu
             [
                 'name'=>'User Trafic Email List',

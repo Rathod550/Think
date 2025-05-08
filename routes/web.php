@@ -79,6 +79,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::delete('/blog-category/{id}/delete', [BlogCategoryController::class, 'delete'])->name('admin.blog.category.delete')->middleware('permission:User Blog Category Delete');
 	Route::post('/blog-category/status', [BlogCategoryController::class, 'setBlogCategoryStatus'])->name('admin.set.blog.category.status')->middleware('permission:User Blog Category Status');
 
+	// Sub category
+	Route::get('/blog-category/sub/{id}', [BlogCategoryController::class, 'blogCategorySubIndex'])->name('admin.blog.category.sub')->middleware('permission:User Blog Category Sub List');
+	Route::get('/blog-category/sub/create/{id}', [BlogCategoryController::class, 'blogCategorySubCreate'])->name('admin.blog.category.sub.create')->middleware('permission:User Blog Category Sub Create');
+	Route::post('/blog-category/sub/store', [BlogCategoryController::class, 'blogCategorySubStore'])->name('admin.blog.category.sub.store');
+	Route::get('/blog-category/sub/{parentId}/{id}/edit', [BlogCategoryController::class, 'blogCategorySubEdit'])->name('admin.blog.category.sub.edit')->middleware('permission:User Blog Category Sub Edit');
+	Route::put('/blog-category/sub/{id}/update', [BlogCategoryController::class, 'blogCategorySubUpdate'])->name('admin.blog.category.sub.update');
+	Route::post('/blog-category/sub/status', [BlogCategoryController::class, 'setBlogCategorySubStatus'])->name('admin.set.blog.category.sub.status')->middleware('permission:User Blog Category Sub Status');
+
 	// TraficEmailController
 	Route::get('/trafic-email', [TraficEmailController::class, 'index'])->name('admin.trafic.email')->middleware('permission:User Trafic Email List');
 	Route::get('/trafic-email/create', [TraficEmailController::class, 'create'])->name('admin.trafic.email.create')->middleware('permission:User Trafic Email Create');

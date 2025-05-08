@@ -3,6 +3,7 @@
 use App\Models\Notification;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 function notificationMsg($type, $message){
     \Session::put($type, $message);
@@ -96,4 +97,9 @@ function uploadImagePublic($path, $file){
     $file->move($path, $filename);
 
     return $filename;
+}
+
+function makeSlug($name){
+    $slug = Str::slug($name);
+    return $slug;
 }

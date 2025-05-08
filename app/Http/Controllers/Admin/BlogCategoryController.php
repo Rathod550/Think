@@ -14,22 +14,26 @@ class BlogCategoryController extends AdminController
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = BlogCategory::select('*');
+            $data = BlogCategory::whereNull('parent_id');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){     
 
                         $btn = '';
 
-                        if(!auth()->user()->can('User Blog Category Edit') && !auth()->user()->can('User Blog Category Delete')){
+                        if(!auth()->user()->can('User Blog Category Edit') && !auth()->user()->can('User Blog Category Delete') && !auth()->user()->can('User Blog Category Sub List')){
                             $btn .='<span class="text-danger"><i class="fa fa-ban" aria-hidden="true"></i> Access denied</span>';
                         }else{
+                            if (auth()->user()->can('User Blog Category Sub List')) {
+                                $btn .= '<a href="'.route('admin.blog.category.sub', [$row->id]).'" class="edit btn btn-dark btn-sm"><i class="fa fa-list-alt" aria-hidden="true"></i></a> ';
+                            }
                             if (auth()->user()->can('User Blog Category Edit')) {
                                 $btn .= '<a href="'.route('admin.blog.category.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
                             }
                             if (auth()->user()->can('User Blog Category Delete')) {
                                 $btn .= '<a href="'.route('admin.blog.category.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.blog.category.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
                             }
+
                         }
 
                         return $btn;
@@ -79,7 +83,9 @@ class BlogCategoryController extends AdminController
             $image = 'category/image/' . $profile;
         }
 
-        BlogCategory::create(['name'=>$request->name, 'image' => $image ?? '']);
+        $slug = makeSlug($request->name);
+
+        BlogCategory::create(['name'=>$request->name, 'image' => $image ?? '', 'slug' => $slug]);
 
         notificationMsg('success','Blog Category Created Successfully');
         return redirect()->route('admin.blog.category');
@@ -105,7 +111,9 @@ class BlogCategoryController extends AdminController
             $image = 'category/image/' . $fileName;
         }
 
-        $category->update(['name' => $request->name, 'image' => $image]);
+        $slug = makeSlug($request->name);
+
+        $category->update(['name' => $request->name, 'image' => $image, 'slug' => $slug]);
 
         notificationMsg('info', 'Blog Category Updated Successfully');
         return redirect()->route('admin.blog.category');
@@ -114,11 +122,81 @@ class BlogCategoryController extends AdminController
 
     public function delete($id)
     {
+        $blogCategorySubs = BlogCategory::where('parent_id', $id)->get();
+        if(!empty($blogCategorySubs) && $blogCategorySubs->count() > 0){
+            foreach($blogCategorySubs as $value){
+                $value->delete();
+            }
+        }
+
         BlogCategory::find($id)->delete();
         notificationMsg('error','Blog Category Deleted Successfully');
     }
 
     public function setBlogCategoryStatus(Request $request)
+    {
+        $blogCategorySubs = BlogCategory::where('parent_id', $request->id)->get();
+        if(!empty($blogCategorySubs) && $blogCategorySubs->count() > 0){
+            foreach($blogCategorySubs as $value){
+                $value->update(['status' => $request->status]);
+            }
+        }
+
+        $blogCategory = BlogCategory::find($request->id);
+        $blogCategory->update(['status' => $request->status]);
+    }
+
+    public function blogCategorySubIndex($id)
+    {
+        $blogCategory = BlogCategory::find($id);
+        $blogCategorySubs = BlogCategory::where('parent_id', $id)->get();
+        return view('admin.blogCategory.subCategory.index', compact('blogCategory', 'blogCategorySubs'));
+    }
+
+    public function blogCategorySubCreate($id)
+    {
+        $blogCategory = BlogCategory::find($id);
+        return view('admin.blogCategory.subCategory.create', compact('blogCategory'));
+    }
+
+    public function blogCategorySubStore(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'max:255' ,Rule::unique('blog_categories', 'name')->whereNull('deleted_at')],
+        ]);
+
+        $slug = makeSlug($request->name);
+
+        BlogCategory::create(['name'=>$request->name, 'parent_id' => $request->parent_id, 'slug' => $slug]);
+
+        notificationMsg('success','Category Sub Created Successfully');
+        return redirect()->route('admin.blog.category.sub', [$request->parent_id]);
+    }
+
+    public function blogCategorySubEdit($parentId, $id)
+    {
+        $blogCategory = BlogCategory::find($parentId);
+        $blogCategorySub = BlogCategory::find($id);
+        return view('admin.blogCategory.subCategory.edit', compact('blogCategory', 'blogCategorySub'));
+    }
+
+    public function blogCategorySubUpdate(Request $request, $id)
+    {
+        $category = BlogCategory::findOrFail($id);
+
+        $request->validate([
+            'name' => ['required', 'max:255', Rule::unique('blog_categories', 'name')->ignore($id)->whereNull('deleted_at')],
+        ]);
+
+        $slug = makeSlug($request->name);
+
+        $category->update(['name' => $request->name, 'slug' => $slug]);
+
+        notificationMsg('info', 'Category Sub Updated Successfully');
+        return redirect()->route('admin.blog.category.sub', [$request->parent_id]);
+    }
+
+    public function setBlogCategorySubStatus(Request $request)
     {
         $blogCategory = BlogCategory::find($request->id);
         $blogCategory->update(['status' => $request->status]);
