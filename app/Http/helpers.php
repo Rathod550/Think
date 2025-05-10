@@ -2,8 +2,11 @@
 
 use App\Models\Notification;
 use App\Models\User;
+use App\Models\FrontSetting;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+use Illuminate\Support\Facades\Session;
 
 function notificationMsg($type, $message){
     \Session::put($type, $message);
@@ -102,4 +105,13 @@ function uploadImagePublic($path, $file){
 function makeSlug($name){
     $slug = Str::slug($name);
     return $slug;
+}
+
+function setLanguage($language){
+    Session::put('language', $language);
+}
+
+function getLanguage($text, $language){
+    $language = GoogleTranslate::trans($text, $language);
+    return $language;
 }

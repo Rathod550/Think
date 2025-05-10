@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
-            $table->longText('value')->nullable();
+            $table->longText('value_english')->nullable();
+            $table->longText('value_hindi')->nullable();
+            $table->longText('value_gujrati')->nullable();
             $table->string('page_name')->nullable();
             $table->timestamps();
         });

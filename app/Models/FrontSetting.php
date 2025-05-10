@@ -12,7 +12,9 @@ class FrontSetting extends Model
     protected $fillable = [
         'name',
         'slug',
-        'value',
+        'value_english',
+        'value_hindi',
+        'value_gujrati',
         'page_name'
     ];
 }

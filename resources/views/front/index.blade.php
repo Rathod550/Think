@@ -37,5 +37,5 @@
 @endsection
 
 @section('script')
-
+    
 @endsection

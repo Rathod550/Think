@@ -14,11 +14,11 @@
 
 					<!-- Top Search
 					============================================= -->
-					<div id="top-search" class="header-misc-icon">
-						<select id="languageSelect" class="form-control">
-						    <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
-						    <option value="hi" {{ app()->getLocale() == 'hi' ? 'selected' : '' }}>Hindi</option>
-						    <option value="gu" {{ app()->getLocale() == 'gu' ? 'selected' : '' }}>Gujarati</option>
+					<div class="header-misc-icon">
+						<select class="form-control languageSelect">
+							<option value="value_english" {{ session('language') == 'value_english' ? 'selected' : '' }}>English</option>
+                            <option value="value_hindi" {{ session('language') == 'value_hindi' ? 'selected' : '' }}>Hindi</option>
+                            <option value="value_gujrati" {{ session('language') == 'value_gujrati' ? 'selected' : '' }}>Gujrati</option>
 						</select>
 					</div>
 					<!-- #top-search end -->

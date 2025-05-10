@@ -17,281 +17,279 @@ class FrontSettingSeeder extends Seeder
         $data = [
             // home page setting
 
-            // section 1
+            // Go to blogs title
             [
-                'name' => 'Section 1 Image',
-                'slug' => 'section-1-image',
-                'value' => 'home-1.jpg',
+                'name' => 'Go to blogs title',
+                'slug' => 'go-to-blogs-title',
+                'value_english' => getLanguage('WE SPECIALIZE IN ROBUST SOFTWARE SOLUTIONS', 'en'),
+                'value_hindi' => getLanguage('WE SPECIALIZE IN ROBUST SOFTWARE SOLUTIONS', 'hi'),
+                'value_gujrati' => getLanguage('WE SPECIALIZE IN ROBUST SOFTWARE SOLUTIONS', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 1 Titel',
-                'slug' => 'section-1-titel',
-                'value' => 'Prepare For New Future',
+                'name' => 'Go to blogs description',
+                'slug' => 'go-to-blogs-description',
+                'value_english' => getLanguage('Lasting change, stakeholders development Angelina Jolie world problem solving progressive. Courageous; social entrepreneurship change; accelerate resolve pursue these aspirations asylum.', 'en'),
+                'value_hindi' => getLanguage('Lasting change, stakeholders development Angelina Jolie world problem solving progressive. Courageous; social entrepreneurship change; accelerate resolve pursue these aspirations asylum.', 'hi'),
+                'value_gujrati' => getLanguage('Lasting change, stakeholders development Angelina Jolie world problem solving progressive. Courageous; social entrepreneurship change; accelerate resolve pursue these aspirations asylum.', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 1 Sub Titel',
-                'slug' => 'section-1-sub-titel',
-                'value' => 'Our work is presentation of our capabilities.',
-                'page_name' => 'Home'
-            ],
-
-            // section 2
-            [
-                'name' => 'Section 2 Titel',
-                'slug' => 'section-2-titel',
-                'value' => 'We are creative & expert people',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 2 Sub Titel',
-                'slug' => 'section-2-sub-titel',
-                'value' => 'We work with business & provide solution to client with their business problem.',
+                'name' => 'Go to blogs button text',
+                'slug' => 'go-to-blogs-button-text',
+                'value_english' => getLanguage('Check our Services', 'en'),
+                'value_hindi' => getLanguage('Check our Services', 'hi'),
+                'value_gujrati' => getLanguage('Check our Services', 'gu'),
                 'page_name' => 'Home'
             ],
 
-            // section 3
+            // why choose us section
             [
-                'name' => 'Section 3 First Titel',
-                'slug' => 'section-3-first-titel',
-                'value' => 'Modern & Responsive design',
+                'name' => 'Why choose us title',
+                'slug' => 'why-choose-us-title',
+                'value_english' => getLanguage('WHY CHOOSE US', 'en'),
+                'value_hindi' => getLanguage('WHY CHOOSE US', 'hi'),
+                'value_gujrati' => getLanguage('WHY CHOOSE US', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 3 First Description',
-                'slug' => 'section-3-first-description',
-                'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.',
+                'name' => 'Why choose us description',
+                'slug' => 'why-choose-us-description',
+                'value_english' => getLanguage('Transform, agency working families thinkers who make change happen communities. Developing nations legal aid public sector our ambitions future aid The Elders economic security Rosa.', 'en'),
+                'value_hindi' => getLanguage('Transform, agency working families thinkers who make change happen communities. Developing nations legal aid public sector our ambitions future aid The Elders economic security Rosa.', 'hi'),
+                'value_gujrati' => getLanguage('Transform, agency working families thinkers who make change happen communities. Developing nations legal aid public sector our ambitions future aid The Elders economic security Rosa.', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 3 Second Titel',
-                'slug' => 'section-3-second-titel',
-                'value' => 'Awarded licensed company',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 3 Second Description',
-                'slug' => 'section-3-second-description',
-                'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 3 Third Titel',
-                'slug' => 'section-3-third-titel',
-                'value' => 'Build your website Professionally',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 3 Third Description',
-                'slug' => 'section-3-third-description',
-                'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.',
+                'name' => 'Why choose us button text',
+                'slug' => 'why-choose-us-button-text',
+                'value_english' => getLanguage('READ MORE', 'en'),
+                'value_hindi' => getLanguage('READ MORE', 'hi'),
+                'value_gujrati' => getLanguage('READ MORE', 'gu'),
                 'page_name' => 'Home'
             ],
 
-            // section 4
+            // OUR MISSION section
             [
-                'name' => 'Section 4 Image',
-                'slug' => 'section-4-image',
-                'value' => 'home-8.jpg',
+                'name' => 'Our mission title',
+                'slug' => 'our-mission-title',
+                'value_english' => getLanguage('OUR MISSION', 'en'),
+                'value_hindi' => getLanguage('OUR MISSION', 'hi'),
+                'value_gujrati' => getLanguage('OUR MISSION', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 4 Titel',
-                'slug' => 'section-4-titel',
-                'value' => 'What we are',
+                'name' => 'Our mission description',
+                'slug' => 'our-mission-description',
+                'value_english' => getLanguage('Frontline respond, visionary collaborative cities advancement overcome injustice, UNHCR public-private partnerships cause. Giving, country educate rights-based approach; leverage disrupt solution.', 'en'),
+                'value_hindi' => getLanguage('Frontline respond, visionary collaborative cities advancement overcome injustice, UNHCR public-private partnerships cause. Giving, country educate rights-based approach; leverage disrupt solution.', 'hi'),
+                'value_gujrati' => getLanguage('Frontline respond, visionary collaborative cities advancement overcome injustice, UNHCR public-private partnerships cause. Giving, country educate rights-based approach; leverage disrupt solution.', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 4 Sub Titel',
-                'slug' => 'section-4-sub-titel',
-                'value' => 'We are dynamic team of creative people',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 4 Sub Titel Two',
-                'slug' => 'section-4-sub-titel-two',
-                'value' => 'We are Perfect Solution',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 4 Description',
-                'slug' => 'section-4-description',
-                'value' => 'We provide consulting services in the area of IFRS and management reporting, helping companies to reach their highest level. We optimize business processes, making them easier.',
+                'name' => 'Our mission button text',
+                'slug' => 'our-mission-button-text',
+                'value_english' => getLanguage('READ MORE', 'en'),
+                'value_hindi' => getLanguage('READ MORE', 'hi'),
+                'value_gujrati' => getLanguage('READ MORE', 'gu'),
                 'page_name' => 'Home'
             ],
 
-            // Section 5
+            // OUR MISSION section
             [
-                'name' => 'Section 5 Completed Projects',
-                'slug' => 'section-5-completed-projects',
-                'value' => '1730',
+                'name' => 'What you get title',
+                'slug' => 'what-you-get-title',
+                'value_english' => getLanguage('WHAT YOU GET', 'en'),
+                'value_hindi' => getLanguage('WHAT YOU GET', 'hi'),
+                'value_gujrati' => getLanguage('WHAT YOU GET', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 5 Happy Clients',
-                'slug' => 'section-5-happy-clients',
-                'value' => '125',
+                'name' => 'What you get description',
+                'slug' => 'what-you-get-description',
+                'value_english' => getLanguage('Sustainability involvement fundraising campaign connect carbon rights, collaborative cities convener truth. Synthesize change lives treatment fluctuation participatory monitoring underprivileged equal.', 'en'),
+                'value_hindi' => getLanguage('Sustainability involvement fundraising campaign connect carbon rights, collaborative cities convener truth. Synthesize change lives treatment fluctuation participatory monitoring underprivileged equal.', 'hi'),
+                'value_gujrati' => getLanguage('Sustainability involvement fundraising campaign connect carbon rights, collaborative cities convener truth. Synthesize change lives treatment fluctuation participatory monitoring underprivileged equal.', 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 5 Employees',
-                'slug' => 'section-5-employees',
-                'value' => '39',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 5 Years',
-                'slug' => 'section-5-years',
-                'value' => '14',
-                'page_name' => 'Home'
-            ],
-
-            // Section 6
-            [
-                'name' => 'Section 6 Titel',
-                'slug' => 'section-6-titel',
-                'value' => 'Our Services',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Sub Titel',
-                'slug' => 'section-6-sub-titel',
-                'value' => 'We provide a wide range of creative services',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part One Title',
-                'slug' => 'section-6-part-one-title',
-                'value' => 'Web development.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part One Description',
-                'slug' => 'section-6-part-one-description',
-                'value' => "A digital agency isn't here to replace your internal team, we're here to partner",
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Two Title',
-                'slug' => 'section-6-part-two-title',
-                'value' => 'Interface Design.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Two Description',
-                'slug' => 'section-6-part-two-description',
-                'value' => "A digital agency isn't here to replace your internal team, we're here to partner",
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Third Title',
-                'slug' => 'section-6-part-third-title',
-                'value' => 'Business Consulting.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Third Description',
-                'slug' => 'section-6-part-third-description',
-                'value' => "A digital agency isn't here to replace your internal team, we're here to partner",
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Forth Title',
-                'slug' => 'section-6-part-forth-title',
-                'value' => 'Branding.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Forth Description',
-                'slug' => 'section-6-part-forth-description',
-                'value' => "A digital agency isn't here to replace your internal team, we're here to partner",
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Fifth Title',
-                'slug' => 'section-6-part-fifth-title',
-                'value' => 'App development.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Fifth Description',
-                'slug' => 'section-6-part-fifth-description',
-                'value' => "A digital agency isn't here to replace your internal team, we're here to partner",
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Sixth Title',
-                'slug' => 'section-6-part-sixth-title',
-                'value' => 'Content creation.',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 6 Part Sixth Description',
-                'slug' => 'section-6-part-sixth-description',
-                'value' => "A digital agency isn't here to replace your internal team, we're here to partner",
+                'name' => 'What you get button text',
+                'slug' => 'what-you-get-button-text',
+                'value_english' => getLanguage('READ MORE', 'en'),
+                'value_hindi' => getLanguage('READ MORE', 'hi'),
+                'value_gujrati' => getLanguage('READ MORE', 'gu'),
                 'page_name' => 'Home'
             ],
 
-            // Section 7
+            // slogan section
             [
-                'name' => 'Section 7 Image',
-                'slug' => 'section-7-image',
-                'value' => 'home-3.jpg',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 7 Titel',
-                'slug' => 'section-7-titel',
-                'value' => 'We create for you',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 7 Sub Titel',
-                'slug' => 'section-7-sub-titel',
-                'value' => 'Entrust Your Project to Our Best Team of Professionals',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 7 Description',
-                'slug' => 'section-7-description',
-                'value' => 'Have any project on mind? For immidiate support :',
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Section 7 Mobile Number',
-                'slug' => 'section-7-mobile-number',
-                'value' => '23 876 65 455',
+                'name' => 'Slogan text',
+                'slug' => 'slogan-text',
+                'value_english' => getLanguage('EVERYTHING IS DESIGNED, BUT SOME THINGS ARE DESIGNED WELL.', 'en'),
+                'value_hindi' => getLanguage('EVERYTHING IS DESIGNED, BUT SOME THINGS ARE DESIGNED WELL.', 'hi'),
+                'value_gujrati' => getLanguage('EVERYTHING IS DESIGNED, BUT SOME THINGS ARE DESIGNED WELL.', 'gu'),
                 'page_name' => 'Home'
             ],
 
-            // Section 8
+            // information section
             [
-                'name' => 'Section 8 Titel',
-                'slug' => 'section-8-titel',
-                'value' => 'Clients testimonial',
+                'name' => "Information section 1 title",
+                'slug' => 'information-section-1-title',
+                'value_english' => getLanguage("Our Company's Values", 'en'),
+                'value_hindi' => getLanguage("Our Company's Values", 'hi'),
+                'value_gujrati' => getLanguage("Our Company's Values", 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 8 Sub Titel',
-                'slug' => 'section-8-sub-titel',
-                'value' => "Check what's our clients say about us",
+                'name' => "Information section 1 description",
+                'slug' => 'information-section-1-description',
+                'value_english' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'en'),
+                'value_hindi' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'hi'),
+                'value_gujrati' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Information section 2 title",
+                'slug' => 'information-section-2-title',
+                'value_english' => getLanguage("How to get Support ?", 'en'),
+                'value_hindi' => getLanguage("How to get Support ?", 'hi'),
+                'value_gujrati' => getLanguage("How to get Support ?", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Information section 2 description",
+                'slug' => 'information-section-2-description',
+                'value_english' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'en'),
+                'value_hindi' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'hi'),
+                'value_gujrati' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Information section 3 title",
+                'slug' => 'information-section-3-title',
+                'value_english' => getLanguage("Where can you find us?", 'en'),
+                'value_hindi' => getLanguage("Where can you find us?", 'hi'),
+                'value_gujrati' => getLanguage("Where can you find us?", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Information section 3 description",
+                'slug' => 'information-section-3-description',
+                'value_english' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'en'),
+                'value_hindi' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'hi'),
+                'value_gujrati' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Information section 4 title",
+                'slug' => 'information-section-4-title',
+                'value_english' => getLanguage("Why you choose our Company?", 'en'),
+                'value_hindi' => getLanguage("Why you choose our Company?", 'hi'),
+                'value_gujrati' => getLanguage("Why you choose our Company?", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Information section 4 description",
+                'slug' => 'information-section-4-description',
+                'value_english' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'en'),
+                'value_hindi' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'hi'),
+                'value_gujrati' => getLanguage("Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.", 'gu'),
                 'page_name' => 'Home'
             ],
 
-            // Section 9
+            // our skill section
             [
-                'name' => 'Section 9 Titel',
-                'slug' => 'section-9-titel',
-                'value' => 'For Every type business',
+                'name' => "Progress bar section title",
+                'slug' => 'progress-bar-section-title',
+                'value_english' => getLanguage("Our Skills", 'en'),
+                'value_hindi' => getLanguage("Our Skills", 'hi'),
+                'value_gujrati' => getLanguage("Our Skills", 'gu'),
                 'page_name' => 'Home'
             ],
             [
-                'name' => 'Section 9 Description',
-                'slug' => 'section-9-description',
-                'value' => "Entrust Your Project to Our Best Team of Professionals",
+                'name' => "Progress bar 1 title",
+                'slug' => 'progress-bar-1-title',
+                'value_english' => getLanguage("WORDPRESS", 'en'),
+                'value_hindi' => getLanguage("WORDPRESS", 'hi'),
+                'value_gujrati' => getLanguage("WORDPRESS", 'gu'),
                 'page_name' => 'Home'
             ],
+            [
+                'name' => "Progress bar 1 percentage",
+                'slug' => 'progress-bar-1-percentage',
+                'value_english' => 80,
+                'value_hindi' => 80,
+                'value_gujrati' => 80,
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 2 title",
+                'slug' => 'progress-bar-2-title',
+                'value_english' => getLanguage("CSS3", 'en'),
+                'value_hindi' => getLanguage("CSS3", 'hi'),
+                'value_gujrati' => getLanguage("CSS3", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 2 percentage",
+                'slug' => 'progress-bar-2-percentage',
+                'value_english' => 60,
+                'value_hindi' => 60,
+                'value_gujrati' => 60,
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 3 title",
+                'slug' => 'progress-bar-3-title',
+                'value_english' => getLanguage("HTML5", 'en'),
+                'value_hindi' => getLanguage("HTML5", 'hi'),
+                'value_gujrati' => getLanguage("HTML5", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 3 percentage",
+                'slug' => 'progress-bar-3-percentage',
+                'value_english' => 90,
+                'value_hindi' => 90,
+                'value_gujrati' => 90,
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 4 title",
+                'slug' => 'progress-bar-4-title',
+                'value_english' => getLanguage("PHP", 'en'),
+                'value_hindi' => getLanguage("PHP", 'hi'),
+                'value_gujrati' => getLanguage("PHP", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 4 percentage",
+                'slug' => 'progress-bar-4-percentage',
+                'value_english' => 85,
+                'value_hindi' => 85,
+                'value_gujrati' => 85,
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 5 title",
+                'slug' => 'progress-bar-5-title',
+                'value_english' => getLanguage("JQUERY", 'en'),
+                'value_hindi' => getLanguage("JQUERY", 'hi'),
+                'value_gujrati' => getLanguage("JQUERY", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Progress bar 5 percentage",
+                'slug' => 'progress-bar-5-percentage',
+                'value_english' => 70,
+                'value_hindi' => 70,
+                'value_gujrati' => 70,
+                'page_name' => 'Home'
+            ],
+            
+
+
+
 
         ];
 

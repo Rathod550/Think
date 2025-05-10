@@ -4,6 +4,7 @@
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="SemiColonWeb" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<!-- Document Title
 	============================================= -->
@@ -55,22 +56,6 @@
 	@include('frontTheme.script')
 	@yield('script')
 
-	<script type="text/javascript">
-		document.getElementById('languageSelect').addEventListener('change', function () {
-	        const selectedLang = this.value;
-	        const segments = window.location.pathname.split('/').filter(Boolean);
-
-	        // Replace current locale with new one
-	        if (['en', 'hi', 'gu'].includes(segments[0])) {
-	            segments[0] = selectedLang;
-	        } else {
-	            segments.unshift(selectedLang); // If no locale in path
-	        }
-
-	        const newPath = '/' + segments.join('/');
-	        window.location.href = newPath;
-	    });
-	</script>
 
 </body>
 </html>
