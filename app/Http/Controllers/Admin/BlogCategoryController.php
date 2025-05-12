@@ -75,7 +75,8 @@ class BlogCategoryController extends AdminController
     {
         $request->validate([
             'name' => ['required', 'max:255' ,Rule::unique('blog_categories', 'name')->whereNull('deleted_at')],
-            'image' => 'required'
+            'image' => 'required',
+            'description_english' => 'required'
         ]);
 
         if ($request->hasFile('image')) {
@@ -85,7 +86,16 @@ class BlogCategoryController extends AdminController
 
         $slug = makeSlug($request->name);
 
-        BlogCategory::create(['name'=>$request->name, 'image' => $image ?? '', 'slug' => $slug]);
+        BlogCategory::create([
+            'name'=>$request->name, 
+            'image' => $image ?? '', 
+            'slug' => $slug,
+            'name_hindi' => getLanguage($request->name, 'hi'),
+            'name_gujrati' => getLanguage($request->name, 'gu'),
+            'description_english' => $request->description_english,
+            'description_hindi' => getLanguage($request->description_english, 'hi'),
+            'description_gujrati' => getLanguage($request->description_english, 'gu'),
+        ]);
 
         notificationMsg('success','Blog Category Created Successfully');
         return redirect()->route('admin.blog.category');
@@ -113,7 +123,16 @@ class BlogCategoryController extends AdminController
 
         $slug = makeSlug($request->name);
 
-        $category->update(['name' => $request->name, 'image' => $image, 'slug' => $slug]);
+        $category->update([
+            'name' => $request->name, 
+            'image' => $image, 
+            'slug' => $slug,
+            'name_hindi' => getLanguage($request->name, 'hi'),
+            'name_gujrati' => getLanguage($request->name, 'gu'),
+            'description_english' => $request->description_english,
+            'description_hindi' => getLanguage($request->description_english, 'hi'),
+            'description_gujrati' => getLanguage($request->description_english, 'gu'),
+        ]);
 
         notificationMsg('info', 'Blog Category Updated Successfully');
         return redirect()->route('admin.blog.category');

@@ -21,6 +21,11 @@ class BlogCategory extends Model
         'status',
         'image',
         'parent_id',
-        'slug'
+        'slug',
+        'name_hindi',
+        'name_gujrati',
+        'description_english',
+        'description_hindi',
+        'description_gujrati',
     ];
 }

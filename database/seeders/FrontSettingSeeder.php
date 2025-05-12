@@ -286,11 +286,24 @@ class FrontSettingSeeder extends Seeder
                 'value_gujrati' => 70,
                 'page_name' => 'Home'
             ],
-            
 
-
-
-
+            // Blog Categorys section
+            [
+                'name' => "Our Blog Categorys title",
+                'slug' => 'our-blog-categorys-title',
+                'value_english' => getLanguage("Our Blog Categorys", 'en'),
+                'value_hindi' => getLanguage("Our Blog Categorys", 'hi'),
+                'value_gujrati' => getLanguage("Our Blog Categorys", 'gu'),
+                'page_name' => 'Home'
+            ],
+            [
+                'name' => "Our Blog Categorys Button",
+                'slug' => 'our-blog-categorys-button',
+                'value_english' => getLanguage("View Details", 'en'),
+                'value_hindi' => getLanguage("View Details", 'hi'),
+                'value_gujrati' => getLanguage("View Details", 'gu'),
+                'page_name' => 'Home'
+            ],
         ];
 
         foreach ($data as $key => $value) {
