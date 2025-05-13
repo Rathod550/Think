@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\TraficEmailController;
+use App\Http\Controllers\Admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,4 +97,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::delete('/trafic-email/{id}/delete', [TraficEmailController::class, 'delete'])->name('admin.trafic.email.delete')->middleware('permission:User Trafic Email Delete');
 	Route::get('/trafic-email/import/create', [TraficEmailController::class, 'importCreate'])->name('admin.trafic.email.import.create')->middleware('permission:User Trafic Email Import');
 	Route::post('/trafic-email/import/store', [TraficEmailController::class, 'importStore'])->name('admin.trafic.email.excel.store');
+
+	// SliderController
+	Route::get('/slider', [SliderController::class, 'index'])->name('admin.slider')->middleware('permission:Slider List');
+	Route::get('/slider/create', [SliderController::class, 'create'])->name('admin.slider.create')->middleware('permission:Slider Create');
+	Route::post('/slider/store', [SliderController::class, 'store'])->name('admin.slider.store');
+	Route::get('/slider/{id}/edit', [SliderController::class, 'edit'])->name('admin.slider.edit')->middleware('permission:Slider Edit');
+	Route::put('/slider/{id}/update', [SliderController::class, 'update'])->name('admin.slider.update');
+	Route::delete('/slider/{id}/delete', [SliderController::class, 'delete'])->name('admin.slider.delete')->middleware('permission:Slider Delete');
 });

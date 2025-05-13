@@ -7,18 +7,20 @@ use Illuminate\Http\Request;
 use App;
 use App\Models\FrontSetting;
 use App\Models\BlogCategory;
+use App\Models\Slider;
 
 class FrontHomeController extends FrontController
 {
     public function index(Request $request)
     {
+        $sliders = Slider::get();
         $blogCategorys = BlogCategory::whereNull('parent_id')->where('status', 1)->get();
         $frontSettings = FrontSetting::where('page_name', 'Home')->get();
         $frontSetting = [];
         foreach($frontSettings as $key => $value){
             $frontSetting[$value->slug] = $value;
         }
-        return view('front.index', compact('frontSetting', 'blogCategorys'));
+        return view('front.index', compact('frontSetting', 'blogCategorys', 'sliders'));
     }
 
     public function aboutUs()

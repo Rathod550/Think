@@ -176,6 +176,28 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User Trafic Email',
             ],
+
+            // Slider Menu
+            [
+                'name'=>'Slider List',
+                'guard_name'=>'web',
+                'group_name'=>'Slider',
+            ],
+            [
+                'name'=>'Slider Create',
+                'guard_name'=>'web',
+                'group_name'=>'Slider',
+            ],
+            [
+                'name'=>'Slider Edit',
+                'guard_name'=>'web',
+                'group_name'=>'Slider',
+            ],
+            [
+                'name'=>'Slider Delete',
+                'guard_name'=>'web',
+                'group_name'=>'Slider',
+            ],
             
         ];
 
