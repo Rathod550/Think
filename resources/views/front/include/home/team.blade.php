@@ -43,19 +43,19 @@
                                         @endif        
                                     </span>
                                 </div>
-                                <a href="{{ $value->facebook_link }}" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                <a href="{{ $value->facebook_link }}" class="social-icon inline-block si-small si-light si-rounded si-facebook" target="_blank">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
-                                <a href="{{ $value->instagram_link }}" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                <a href="{{ $value->instagram_link }}" class="social-icon inline-block si-small si-light si-rounded si-twitter" target="_blank">
                                     <i class="icon-instagram"></i>
                                     <i class="icon-instagram"></i>
                                 </a>
-                                <a href="{{ $value->twitter_link }}" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                <a href="{{ $value->twitter_link }}" class="social-icon inline-block si-small si-light si-rounded si-gplus" target="_blank">
                                     <i class="icon-twitter1"></i>
                                     <i class="icon-twitter1"></i>
                                 </a>
-                                <a href="{{ $value->linkedin_link }}" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                <a href="{{ $value->linkedin_link }}" class="social-icon inline-block si-small si-light si-rounded si-gplus" target="_blank">
                                     <i class="icon-linkedin-sign"></i>
                                     <i class="icon-linkedin-sign"></i>
                                 </a>
