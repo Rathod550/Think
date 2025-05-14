@@ -198,6 +198,28 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'Slider',
             ],
+
+            // Our Team Menu
+            [
+                'name'=>'Our Team List',
+                'guard_name'=>'web',
+                'group_name'=>'Our Team',
+            ],
+            [
+                'name'=>'Our Team Create',
+                'guard_name'=>'web',
+                'group_name'=>'Our Team',
+            ],
+            [
+                'name'=>'Our Team Edit',
+                'guard_name'=>'web',
+                'group_name'=>'Our Team',
+            ],
+            [
+                'name'=>'Our Team Delete',
+                'guard_name'=>'web',
+                'group_name'=>'Our Team',
+            ],
             
         ];
 

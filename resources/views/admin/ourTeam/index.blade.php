@@ -1,6 +1,6 @@
 @extends($adminTheme)
 
-@section('title', 'Blog Category')
+@section('title', 'Our Team')
 
 @section('style')
 	
@@ -15,11 +15,11 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-6">
-						  			<h5 class="card-title">Blog Category</h5>
+						  			<h5 class="card-title">Our Team</h5>
 								</div>
 								<div class="col-md-6">
-									@if(auth()->user()->can('User Blog Category Create'))
-										<a href="{{ route('admin.blog.category.create') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i></a>
+									@if(auth()->user()->can('Our Team Create'))
+										<a href="{{ route('admin.our.team.create') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i></a>
 									@endif
 								</div>
 							</div>
@@ -30,9 +30,9 @@
 							        <thead>
 							            <tr>
 							                <th width="10%">No</th>
-							                <th width="30%">Name</th>
 							                <th width="20%">Image</th>
-							                <th width="20%">Status</th>
+							                <th width="30%">Name</th>
+							                <th width="20%">Company Role</th>
 							                <th width="20%">Action</th>
 							            </tr>
 							        </thead>
@@ -56,7 +56,7 @@
 		    var table = $('.data-table').DataTable({
 		        processing: true,
 		        serverSide: true,
-		        ajax: "{{ route('admin.blog.category') }}",
+		        ajax: "{{ route('admin.our.team') }}",
 		        columns: [
 		            {
 			            data: null,
@@ -65,13 +65,12 @@
 			            orderable: false,
 			            searchable: false
 			        },
-		            {data: 'name', name: 'name'},
 		            {data: 'image', name: 'image'},
-		            {data: 'status', name: 'status'},
+		            {data: 'name', name: 'name'},
+		            {data: 'company_role', name: 'company_role'},
 		            {data: 'action', name: 'action', orderable: false, searchable: false},
 		        ]
 		    });
 		});
 	</script>
-	<script src="{{ asset('adminTheme/pageLevel/js/blogCategory/blogCategory.js') }}"></script>
 @endsection

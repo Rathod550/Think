@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\TraficEmailController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\OurTeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,4 +106,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/slider/{id}/edit', [SliderController::class, 'edit'])->name('admin.slider.edit')->middleware('permission:Slider Edit');
 	Route::put('/slider/{id}/update', [SliderController::class, 'update'])->name('admin.slider.update');
 	Route::delete('/slider/{id}/delete', [SliderController::class, 'delete'])->name('admin.slider.delete')->middleware('permission:Slider Delete');
+
+	// SliderController
+	Route::get('/our-team', [OurTeamController::class, 'index'])->name('admin.our.team')->middleware('permission:Our Team List');
+	Route::get('/our-team/create', [OurTeamController::class, 'create'])->name('admin.our.team.create')->middleware('permission:Our Team Create');
+	Route::post('/our-team/store', [OurTeamController::class, 'store'])->name('admin.our.team.store');
+	Route::get('/our-team/{id}/edit', [OurTeamController::class, 'edit'])->name('admin.our.team.edit')->middleware('permission:Our Team Edit');
+	Route::put('/our-team/{id}/update', [OurTeamController::class, 'update'])->name('admin.our.team.update');
+	Route::delete('/our-team/{id}/delete', [OurTeamController::class, 'delete'])->name('admin.our.team.delete')->middleware('permission:Our Team Delete');
 });
