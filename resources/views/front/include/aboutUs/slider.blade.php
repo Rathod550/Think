@@ -1,8 +1,8 @@
 <div class="col-12">
 
     <div class="heading-block center border-bottom-0 flip animated" data-animate="flip">
-        <h2>Interactive Office Environment</h2>
-        <span>We value Work Ethics &amp; Environment as it helps in creating a Creative Thinktank</span>
+        <h2>{{ $frontSetting['slider-title'][session('language') ?? 'value_english'] }}</h2>
+        <span>{{ $frontSetting['slider-description'][session('language') ?? 'value_english'] }}</span>
     </div>
 
     <div class="fslider" data-pagi="false" data-animation="fade">

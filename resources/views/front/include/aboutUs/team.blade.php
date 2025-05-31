@@ -1,112 +1,80 @@
 <div class="heading-block center">
-    <h2>Canvas Thinktank</h2>
-    <span>Our Team Members who have contributed immensely to our Growth</span>
+    <h2>{{ $frontSetting['our-team-title'][session('language') ?? 'value_english'] }}</h2>
+    <span>{{ $frontSetting['our-team-description'][session('language') ?? 'value_english'] }}</span>
 </div>
 
 <div class="row col-mb-50 mb-0">
-
-    <div class="col-lg-6">
-        <div class="team team-list row align-items-center">
-            <div class="team-image col-sm-6">
-                <img src="{{ asset('frontTheme/images/team/3.jpg') }}" alt="John Doe">
-            </div>
-            <div class="team-desc col-sm-6">
-                <div class="team-title"><h4>John Doe</h4><span>CEO</span></div>
-                <div class="team-content">
-                    <p>Carbon emissions reductions giving, legitimize amplify non-partisan Aga Khan. Policy dialogue assessment expert free-speech cornerstone disruptor freedom. Cesar Chavez empower.</p>
+    @if(!empty($ourTeams) && $ourTeams->count() > 0)
+        @foreach($ourTeams as $key => $member)
+            <div class="col-lg-6">
+                <div class="team team-list row align-items-center">
+                    <div class="team-image col-sm-6">
+                        <img src="{{ asset($member->image) }}" alt="{{ $member->name }}">
+                    </div>
+                    <div class="team-desc col-sm-6">
+                        <div class="team-title">
+                            <h4>
+                                @if(empty(session('language')))
+                                    {{ $member->name }}
+                                @elseif(session('language') == 'value_english')
+                                    {{ $member->name }}
+                                @elseif(session('language') == 'value_hindi')
+                                    {{ $member->name_hindi }}
+                                @elseif(session('language') == 'value_gujrati')
+                                    {{ $member->name_gujrati }}
+                                @else
+                                    {{ $member->name }}
+                                @endif
+                            </h4>
+                            <span>
+                                @if(empty(session('language')))
+                                    {{ $member->company_role }}
+                                @elseif(session('language') == 'value_english')
+                                    {{ $member->company_role }}
+                                @elseif(session('language') == 'value_hindi')
+                                    {{ $member->company_role_hindi }}
+                                @elseif(session('language') == 'value_gujrati')
+                                    {{ $member->company_role_gujrati }}
+                                @else
+                                    {{ $member->company_role }}
+                                @endif
+                            </span>
+                        </div>
+                        <div class="team-content">
+                            <p>
+                                @if(empty(session('language')))
+                                    {{ $member->description }}
+                                @elseif(session('language') == 'value_english')
+                                    {{ $member->description }}
+                                @elseif(session('language') == 'value_hindi')
+                                    {{ $member->description_hindi }}
+                                @elseif(session('language') == 'value_gujrati')
+                                    {{ $member->description_gujrati }}
+                                @else
+                                    {{ $member->description }}
+                                @endif
+                            </p>
+                        </div>
+                        <a href="{{ $member->facebook_link }}" class="social-icon inline-block si-small si-light si-rounded si-facebook" target="_blank">
+                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook"></i>
+                        </a>
+                        <a href="{{ $member->instagram_link }}" class="social-icon inline-block si-small si-light si-rounded si-twitter" target="_blank">
+                            <i class="icon-instagram"></i>
+                            <i class="icon-instagram"></i>
+                        </a>
+                        <a href="{{ $member->twitter_link }}" class="social-icon inline-block si-small si-light si-rounded si-gplus" target="_blank">
+                            <i class="icon-twitter1"></i>
+                            <i class="icon-twitter1"></i>
+                        </a>
+                        <a href="{{ $member->linkedin_link }}" class="social-icon inline-block si-small si-light si-rounded si-gplus" target="_blank">
+                            <i class="icon-linkedin-sign"></i>
+                            <i class="icon-linkedin-sign"></i>
+                        </a>
+                    </div>
                 </div>
-                <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                    <i class="icon-facebook"></i>
-                    <i class="icon-facebook"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                    <i class="icon-twitter"></i>
-                    <i class="icon-twitter"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                    <i class="icon-gplus"></i>
-                    <i class="icon-gplus"></i>
-                </a>
             </div>
-        </div>
-    </div>
-
-    <div class="col-lg-6">
-        <div class="team team-list row align-items-center">
-            <div class="team-image col-sm-6">
-                <img src="{{ asset('frontTheme/images/team/2.jpg') }}" alt="Josh Clark">
-            </div>
-            <div class="team-desc col-sm-6">
-                <div class="team-title"><h4>Josh Clark</h4><span>Co-Founder</span></div>
-                <div class="team-content">
-                    <p>Carbon emissions reductions giving, legitimize amplify non-partisan Aga Khan. Policy dialogue assessment expert free-speech cornerstone disruptor freedom. Cesar Chavez empower.</p>
-                </div>
-                <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                    <i class="icon-facebook"></i>
-                    <i class="icon-facebook"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                    <i class="icon-twitter"></i>
-                    <i class="icon-twitter"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                    <i class="icon-gplus"></i>
-                    <i class="icon-gplus"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-6">
-        <div class="team team-list row align-items-center">
-            <div class="team-image col-sm-6">
-                <img src="{{ asset('frontTheme/images/team/8.jpg') }}" alt="Mary Jane">
-            </div>
-            <div class="team-desc col-sm-6">
-                <div class="team-title"><h4>Mary Jane</h4><span>Sales</span></div>
-                <div class="team-content">
-                    <p>Carbon emissions reductions giving, legitimize amplify non-partisan Aga Khan. Policy dialogue assessment expert free-speech cornerstone disruptor freedom. Cesar Chavez empower.</p>
-                </div>
-                <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                    <i class="icon-facebook"></i>
-                    <i class="icon-facebook"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                    <i class="icon-twitter"></i>
-                    <i class="icon-twitter"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                    <i class="icon-gplus"></i>
-                    <i class="icon-gplus"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-6">
-        <div class="team team-list row align-items-center">
-            <div class="team-image col-sm-6">
-                <img src="{{ asset('frontTheme/images/team/4.jpg') }}" alt="Nix Maxwell">
-            </div>
-            <div class="team-desc col-sm-6">
-                <div class="team-title"><h4>Nix Maxwell</h4><span>Support</span></div>
-                <div class="team-content">
-                    <p>Carbon emissions reductions giving, legitimize amplify non-partisan Aga Khan. Policy dialogue assessment expert free-speech cornerstone disruptor freedom. Cesar Chavez empower.</p>
-                </div>
-                <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                    <i class="icon-facebook"></i>
-                    <i class="icon-facebook"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                    <i class="icon-twitter"></i>
-                    <i class="icon-twitter"></i>
-                </a>
-                <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                    <i class="icon-gplus"></i>
-                    <i class="icon-gplus"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+        @endforeach
+    @endif
 
 </div>

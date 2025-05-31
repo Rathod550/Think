@@ -312,6 +312,14 @@ class FrontSettingSeeder extends Seeder
                 'value_gujrati' => getLanguage("Our Team", 'gu'),
                 'page_name' => 'Home'
             ],
+            [
+                'name' => "What Clients Say",
+                'slug' => 'what-clients-say',
+                'value_english' => getLanguage("WHAT CLIENTS SAY?", 'en'),
+                'value_hindi' => getLanguage("WHAT CLIENTS SAY?", 'hi'),
+                'value_gujrati' => getLanguage("WHAT CLIENTS SAY?", 'gu'),
+                'page_name' => 'Home'
+            ],
         ];
 
         foreach ($data as $key => $value) {
