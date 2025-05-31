@@ -27,7 +27,6 @@
                         <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
                         <div class="testi-meta">
                             Collis Ta'eed
-                            <span>Envato Inc.</span>
                         </div>
                     </div>
                 </div>

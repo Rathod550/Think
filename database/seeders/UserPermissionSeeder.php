@@ -220,6 +220,28 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'Our Team',
             ],
+
+            // Client Says Menu
+            [
+                'name'=>'Client Says List',
+                'guard_name'=>'web',
+                'group_name'=>'Client Says',
+            ],
+            [
+                'name'=>'Client Says Create',
+                'guard_name'=>'web',
+                'group_name'=>'Client Says',
+            ],
+            [
+                'name'=>'Client Says Edit',
+                'guard_name'=>'web',
+                'group_name'=>'Client Says',
+            ],
+            [
+                'name'=>'Client Says Delete',
+                'guard_name'=>'web',
+                'group_name'=>'Client Says',
+            ],
             
         ];
 

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\TraficEmailController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\OurTeamController;
+use App\Http\Controllers\Admin\ClientSaysController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,11 +108,19 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::put('/slider/{id}/update', [SliderController::class, 'update'])->name('admin.slider.update');
 	Route::delete('/slider/{id}/delete', [SliderController::class, 'delete'])->name('admin.slider.delete')->middleware('permission:Slider Delete');
 
-	// SliderController
+	// OurTeamController
 	Route::get('/our-team', [OurTeamController::class, 'index'])->name('admin.our.team')->middleware('permission:Our Team List');
 	Route::get('/our-team/create', [OurTeamController::class, 'create'])->name('admin.our.team.create')->middleware('permission:Our Team Create');
 	Route::post('/our-team/store', [OurTeamController::class, 'store'])->name('admin.our.team.store');
 	Route::get('/our-team/{id}/edit', [OurTeamController::class, 'edit'])->name('admin.our.team.edit')->middleware('permission:Our Team Edit');
 	Route::put('/our-team/{id}/update', [OurTeamController::class, 'update'])->name('admin.our.team.update');
 	Route::delete('/our-team/{id}/delete', [OurTeamController::class, 'delete'])->name('admin.our.team.delete')->middleware('permission:Our Team Delete');
+
+	// ClientSaysController
+	Route::get('/client-says', [ClientSaysController::class, 'index'])->name('admin.client.says')->middleware('permission:Client Says List');
+	Route::get('/client-says/create', [ClientSaysController::class, 'create'])->name('admin.client.says.create')->middleware('permission:Client Says Create');
+	Route::post('/client-says/store', [ClientSaysController::class, 'store'])->name('admin.client.says.store');
+	Route::get('/client-says/{id}/edit', [ClientSaysController::class, 'edit'])->name('admin.client.says.edit')->middleware('permission:Client Says Edit');
+	Route::put('/client-says/{id}/update', [ClientSaysController::class, 'update'])->name('admin.client.says.update');
+	Route::delete('/client-says/{id}/delete', [ClientSaysController::class, 'delete'])->name('admin.client.says.delete')->middleware('permission:Client Says Delete');
 });
