@@ -10,6 +10,7 @@ use App\Models\BlogCategory;
 use App\Models\Slider;
 use App\Models\OurTeam;
 use App\Models\ClientSays;
+use App\Models\AboutUsSlider;
 
 class FrontHomeController extends FrontController
 {
@@ -36,11 +37,17 @@ class FrontHomeController extends FrontController
         }
         $ourTeams = OurTeam::get();
         $clientSays = ClientSays::get();
-        return view('front.aboutUs', compact('frontSetting', 'ourTeams', 'clientSays'));
+        $sliders = AboutUsSlider::get();
+        return view('front.aboutUs', compact('frontSetting', 'ourTeams', 'clientSays', 'sliders'));
     }
 
     public function contactUs()
     {
-        return view('front.contactUs');
+        $frontSettings = FrontSetting::where('page_name', 'ContactUs')->get();
+        $frontSetting = [];
+        foreach($frontSettings as $key => $value){
+            $frontSetting[$value->slug] = $value;
+        }
+        return view('front.contactUs', compact('frontSetting'));
     }
 }

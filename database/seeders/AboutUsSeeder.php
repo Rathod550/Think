@@ -137,11 +137,11 @@ class AboutUsSeeder extends Seeder
             ],
             [
                 'name' => "What Clients Say",
-                'slug' => 'what-clients-say',
+                'slug' => 'what-clients-say-about',
                 'value_english' => getLanguage("WHAT CLIENTS SAY?", 'en'),
                 'value_hindi' => getLanguage("WHAT CLIENTS SAY?", 'hi'),
                 'value_gujrati' => getLanguage("WHAT CLIENTS SAY?", 'gu'),
-                'page_name' => 'Home'
+                'page_name' => 'AboutUs'
             ],
         ];
 

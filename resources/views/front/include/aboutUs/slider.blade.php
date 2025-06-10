@@ -8,10 +8,11 @@
     <div class="fslider" data-pagi="false" data-animation="fade">
         <div class="flexslider">
             <div class="slider-wrap">
-                <div class="slide"><a href="#"><img src="{{ asset('frontTheme/images/about/4.jpg') }}" alt="About Image"></a></div>
-                <div class="slide"><a href="#"><img src="{{ asset('frontTheme/images/about/5.jpg') }}" alt="About Image"></a></div>
-                <div class="slide"><a href="#"><img src="{{ asset('frontTheme/images/about/6.jpg') }}" alt="About Image"></a></div>
-                <div class="slide"><a href="#"><img src="{{ asset('frontTheme/images/about/7.jpg') }}" alt="About Image"></a></div>
+                @if(!empty($sliders) && $sliders->count() > 0)
+                    @foreach($sliders as $key => $value)
+                        <div class="slide"><a href="#"><img src="{{ asset($value->image) }}" alt="About Image"></a></div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

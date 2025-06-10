@@ -1,6 +1,6 @@
 <div class="section topmargin-sm footer-stick">
 
-    <h4 class="text-uppercase center">What <span>Clients</span> Say?</h4>
+    <h4 class="text-uppercase center">{{ $frontSetting['what-clients-say-about'][session('language') ?? 'value_english'] }}</h4>
 
     <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
         <div class="flexslider">

@@ -46,6 +46,15 @@
             </li>
         @endif
 
+        @if(auth()->user()->can('Slider List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/aboutUs/slider*') ? '' : 'collapsed' }}" href="{{ route('admin.aboutUs.slider') }}">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                    <span>About Us Slider</span>
+                </a>
+            </li>
+        @endif
+
         @if(auth()->user()->can('Our Team List'))
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/our-team*') ? '' : 'collapsed' }}" href="{{ route('admin.our.team') }}">

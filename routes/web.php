@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TraficEmailController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\OurTeamController;
 use App\Http\Controllers\Admin\ClientSaysController;
+use App\Http\Controllers\Admin\AboutUsSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,4 +124,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/client-says/{id}/edit', [ClientSaysController::class, 'edit'])->name('admin.client.says.edit')->middleware('permission:Client Says Edit');
 	Route::put('/client-says/{id}/update', [ClientSaysController::class, 'update'])->name('admin.client.says.update');
 	Route::delete('/client-says/{id}/delete', [ClientSaysController::class, 'delete'])->name('admin.client.says.delete')->middleware('permission:Client Says Delete');
+
+	// AboutUsSliderController
+	Route::get('aboutUs/slider', [AboutUsSliderController::class, 'index'])->name('admin.aboutUs.slider')->middleware('permission:Slider List');
+	Route::get('aboutUs/slider/create', [AboutUsSliderController::class, 'create'])->name('admin.aboutUs.slider.create')->middleware('permission:Slider Create');
+	Route::post('aboutUs/slider/store', [AboutUsSliderController::class, 'store'])->name('admin.aboutUs.slider.store');
+	Route::get('aboutUs/slider/{id}/edit', [AboutUsSliderController::class, 'edit'])->name('admin.aboutUs.slider.edit')->middleware('permission:Slider Edit');
+	Route::put('aboutUs/slider/{id}/update', [AboutUsSliderController::class, 'update'])->name('admin.aboutUs.slider.update');
+	Route::delete('aboutUs/slider/{id}/delete', [AboutUsSliderController::class, 'delete'])->name('admin.aboutUs.slider.delete')->middleware('permission:Slider Delete');
 });
