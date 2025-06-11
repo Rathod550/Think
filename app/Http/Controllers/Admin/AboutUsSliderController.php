@@ -20,13 +20,13 @@ class AboutUsSliderController extends AdminController
 
                         $btn = '';
 
-                        if(!auth()->user()->can('Slider Edit') && !auth()->user()->can('Slider Delete')){
+                        if(!auth()->user()->can('About Us Slider Edit') && !auth()->user()->can('About Us Slider Delete')){
                             $btn .='<span class="text-danger"><i class="fa fa-ban" aria-hidden="true"></i> Access denied</span>';
                         }else{
-                            if (auth()->user()->can('Slider Edit')) {
+                            if (auth()->user()->can('About Us Slider Edit')) {
                                 $btn .= '<a href="'.route('admin.aboutUs.slider.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
                             }
-                            if (auth()->user()->can('Slider Delete')) {
+                            if (auth()->user()->can('About Us Slider Delete')) {
                                 $btn .= '<a href="'.route('admin.aboutUs.slider.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.aboutUs.slider.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
                             }
                         }

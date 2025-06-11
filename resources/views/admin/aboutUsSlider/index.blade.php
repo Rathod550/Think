@@ -18,7 +18,7 @@
 						  			<h5 class="card-title">About Us Sliders</h5>
 								</div>
 								<div class="col-md-6">
-									@if(auth()->user()->can('Slider Create'))
+									@if(auth()->user()->can('About Us Slider Create'))
 										<a href="{{ route('admin.aboutUs.slider.create') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i></a>
 									@endif
 								</div>

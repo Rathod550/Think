@@ -242,6 +242,28 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'Client Says',
             ],
+
+            // Slider Menu
+            [
+                'name'=>'About Us Slider List',
+                'guard_name'=>'web',
+                'group_name'=>'About Us Slider',
+            ],
+            [
+                'name'=>'About Us Slider Create',
+                'guard_name'=>'web',
+                'group_name'=>'About Us Slider',
+            ],
+            [
+                'name'=>'About Us Slider Edit',
+                'guard_name'=>'web',
+                'group_name'=>'About Us Slider',
+            ],
+            [
+                'name'=>'About Us Slider Delete',
+                'guard_name'=>'web',
+                'group_name'=>'About Us Slider',
+            ],
             
         ];
 
