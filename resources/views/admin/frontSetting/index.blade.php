@@ -44,10 +44,10 @@
                                 @include('admin.frontSetting.homePageForm')
                             </div>
                             <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
-                                <p>About Us settings content goes here.</p>
+                                @include('admin.frontSetting.aboutUsForm')
                             </div>
                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                <p>Contact Us settings content goes here.</p>
+                                @include('admin.frontSetting.contactUsForm')
                             </div>
                         </div>
 
@@ -60,5 +60,25 @@
 @endsection
 
 @section('script')
-<!-- Bootstrap's JS must be included in your layout (bootstrap.bundle.min.js) -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Restore the active tab from localStorage
+        const activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            const triggerTab = document.querySelector(`button[data-bs-target="${activeTab}"]`);
+            if (triggerTab) {
+                new bootstrap.Tab(triggerTab).show();
+            }
+        }
+
+        // Save active tab on tab change
+        const tabButtons = document.querySelectorAll('button[data-bs-toggle="tab"]');
+        tabButtons.forEach(button => {
+            button.addEventListener('shown.bs.tab', function (event) {
+                const target = event.target.getAttribute('data-bs-target');
+                localStorage.setItem('activeTab', target);
+            });
+        });
+    });
+</script>
 @endsection

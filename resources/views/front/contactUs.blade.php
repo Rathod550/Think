@@ -98,7 +98,7 @@
                     <!-- Google Map
                     ============================================= -->
                     <div class="col-lg-6 min-vh-50 ">
-                        <div class="gmap h-100 bounceInRight animated" data-animate="bounceInRight" data-address="Melbourne, Australia" data-markers='[{address: "Melbourne, Australia", html: "<div class=\"p-2\" style=\"width: 300px;\"><h4 class=\"mb-2\">Hi! We are <span>Envato!</span></h4><p class=\"mb-0\" style=\"font-size:1rem;\">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day.</p></div>", icon:{ image: "images/icons/map-icon-red.png", iconsize: [32, 39], iconanchor: [32,39] } }]'></div>
+                        <div id="googleMap" style="width:100%;height:500px;"></div>
                     </div><!-- Google Map End -->
                 </div>
 
@@ -175,5 +175,24 @@
 @endsection
 
 @section('script')
+    <script>
+    function myMap() {
+      var myLocation = new google.maps.LatLng(22.260543, 70.781710);
 
+      var mapProp = {
+        center: myLocation,
+        zoom: 15,
+      };
+
+      var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+      var marker = new google.maps.Marker({
+        position: myLocation,
+        map: map,
+        title: "You are here!",
+        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' // Red marker
+      });
+    }
+  </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD72715OxbNkJWKtCi86dPQD3l1DzDaG6c&callback=myMap"></script>
 @endsection

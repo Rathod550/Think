@@ -15,7 +15,19 @@ class FrontSettingController extends AdminController
         foreach($homeFrontSettings as $key => $value){
             $homefrontSetting[$value->slug] = $value;
         }
-        return view('admin.frontSetting.index', compact('homefrontSetting'));
+
+        $aboutUsFrontSettings = FrontSetting::where('page_name', 'AboutUs')->get();
+        $aboutUsfrontSetting = [];
+        foreach($aboutUsFrontSettings as $key => $value){
+            $aboutUsfrontSetting[$value->slug] = $value;
+        }
+
+        $contactUsFrontSettings = FrontSetting::where('page_name', 'contactUs')->get();
+        $contactUsfrontSetting = [];
+        foreach($contactUsFrontSettings as $key => $value){
+            $contactUsfrontSetting[$value->slug] = $value;
+        }
+        return view('admin.frontSetting.index', compact('homefrontSetting', 'aboutUsfrontSetting', 'contactUsfrontSetting'));
     }
 
     public function update(Request $request)
