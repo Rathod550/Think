@@ -136,4 +136,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
 	// FrontSettingController
 	Route::get('front-setting', [FrontSettingController::class, 'index'])->name('admin.front.setting');
+	Route::post('front-setting/update', [FrontSettingController::class, 'update'])->name('admin.front.setting.update');
 });

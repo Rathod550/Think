@@ -3,7 +3,7 @@
 @section('title', 'Front Setting')
 
 @section('style')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- Optional: Custom tab styling -->
 @endsection
 
 @section('content')
@@ -14,27 +14,40 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h3>Front Settings</h3>
+                        <h3 class="mt-3">Front Settings</h3>
 
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Home Setting</a></li>
-                            <li><a data-toggle="tab" href="#tab2">About Us Setting</a></li>
-                            <li><a data-toggle="tab" href="#tab3">Contact Us Setting</a></li>
+                        <!-- Nav Tabs -->
+                        <ul class="nav nav-tabs mt-3" id="frontSettingTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true">
+                                    Home
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about"
+                                    type="button" role="tab" aria-controls="about" aria-selected="false">
+                                    About Us
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                    type="button" role="tab" aria-controls="contact" aria-selected="false">
+                                    Contact Us
+                                </button>
+                            </li>
                         </ul>
 
-                        <!-- Tab content -->
-                        <div class="tab-content" style="margin-top: 20px;">
-                            <div id="tab1" class="tab-pane fade in active">
+                        <!-- Tab Content -->
+                        <div class="tab-content pt-3" id="frontSettingTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 @include('admin.frontSetting.homePageForm')
                             </div>
-                            <div id="tab2" class="tab-pane fade">
-                                <h4>Tab 2 Content</h4>
-                                <p>This is the content of Tab 2.</p>
+                            <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+                                <p>About Us settings content goes here.</p>
                             </div>
-                            <div id="tab3" class="tab-pane fade">
-                                <h4>Tab 3 Content</h4>
-                                <p>This is the content of Tab 3.</p>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                <p>Contact Us settings content goes here.</p>
                             </div>
                         </div>
 
@@ -47,6 +60,5 @@
 @endsection
 
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Bootstrap's JS must be included in your layout (bootstrap.bundle.min.js) -->
 @endsection

@@ -67,34 +67,34 @@
             </div>
 
             <ul class="skills">
-                <li data-percent="80">
+                <li data-percent="{{ $frontSetting['progress-bar-1-percentage'][session('language') ?? 'value_english'] }}">
                     <span>{{ $frontSetting['progress-bar-1-title'][session('language') ?? 'value_english'] }}</span>
                     <div class="progress">
-                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="80" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="{{ $frontSetting['progress-bar-1-percentage'][session('language') ?? 'value_english'] }}" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
                     </div>
                 </li>
-                <li data-percent="60">
+                <li data-percent="{{ $frontSetting['progress-bar-2-percentage'][session('language') ?? 'value_english'] }}">
                     <span>{{ $frontSetting['progress-bar-2-title'][session('language') ?? 'value_english'] }}</span>
                     <div class="progress">
-                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="60" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="{{ $frontSetting['progress-bar-2-percentage'][session('language') ?? 'value_english'] }}" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
                     </div>
                 </li>
-                <li data-percent="90">
+                <li data-percent="{{ $frontSetting['progress-bar-3-percentage'][session('language') ?? 'value_english'] }}">
                     <span>{{ $frontSetting['progress-bar-3-title'][session('language') ?? 'value_english'] }}</span>
                     <div class="progress">
-                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="90" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="{{ $frontSetting['progress-bar-3-percentage'][session('language') ?? 'value_english'] }}" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
                     </div>
                 </li>
-                <li data-percent="85">
+                <li data-percent="{{ $frontSetting['progress-bar-4-percentage'][session('language') ?? 'value_english'] }}">
                     <span>{{ $frontSetting['progress-bar-4-title'][session('language') ?? 'value_english'] }}</span>
                     <div class="progress">
-                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="85" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="{{ $frontSetting['progress-bar-4-percentage'][session('language') ?? 'value_english'] }}" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
                     </div>
                 </li>
-                <li data-percent="70">
+                <li data-percent="{{ $frontSetting['progress-bar-5-percentage'][session('language') ?? 'value_english'] }}">
                     <span>{{ $frontSetting['progress-bar-5-title'][session('language') ?? 'value_english'] }}</span>
                     <div class="progress">
-                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="70" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
+                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="{{ $frontSetting['progress-bar-5-percentage'][session('language') ?? 'value_english'] }}" data-refresh-interval="30" data-speed="1000"></span>%</div></div>
                     </div>
                 </li>
             </ul>
