@@ -264,6 +264,13 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'About Us Slider',
             ],
+
+            // Front setting menu
+            [
+                'name'=>'Front Setting Menu',
+                'guard_name'=>'web',
+                'group_name'=>'Front Setting Menu',
+            ],
             
         ];
 

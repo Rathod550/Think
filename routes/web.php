@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\OurTeamController;
 use App\Http\Controllers\Admin\ClientSaysController;
 use App\Http\Controllers\Admin\AboutUsSliderController;
 use App\Http\Controllers\Admin\FrontSettingController;
+use App\Http\Controllers\Admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -137,4 +138,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	// FrontSettingController
 	Route::get('front-setting', [FrontSettingController::class, 'index'])->name('admin.front.setting');
 	Route::post('front-setting/update', [FrontSettingController::class, 'update'])->name('admin.front.setting.update');
+
+	// BlogController
+	Route::get('/blogs', [BlogController::class, 'index'])->name('admin.blog');
+	Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blog.create');
+	Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blog.store');
+	Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
+	Route::put('/blogs/{id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
+	Route::delete('/blogs/{id}/delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
 });

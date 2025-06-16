@@ -37,6 +37,13 @@
             </li>
         @endif
 
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('admin/blogs*') ? '' : 'collapsed' }}" href="{{ route('admin.blog') }}">
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                <span>Blogs</span>
+            </a>
+        </li>
+
         @if(auth()->user()->can('Slider List'))
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/slider*') ? '' : 'collapsed' }}" href="{{ route('admin.slider') }}">
@@ -91,12 +98,14 @@
             </li>
         @endif
 
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('admin/front-setting*') ? '' : 'collapsed' }}" href="{{ route('admin.front.setting') }}">
-                <i class="fa fa-cog" aria-hidden="true"></i>
-                <span>Front Settings</span>
-            </a>
-        </li>
+        @if(auth()->user()->can('Front Setting Menu'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/front-setting*') ? '' : 'collapsed' }}" href="{{ route('admin.front.setting') }}">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <span>Front Settings</span>
+                </a>
+            </li>
+        @endif
 
         {{--  <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

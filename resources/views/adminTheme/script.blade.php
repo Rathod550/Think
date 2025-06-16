@@ -19,4 +19,12 @@
 <script src="{{ asset('adminTheme/pageLevel/js/button.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+
+<script>
+    // Apply Tagify to the input
+    var input = document.getElementById('tagsInput');
+    new Tagify(input);
+</script>
+
 
