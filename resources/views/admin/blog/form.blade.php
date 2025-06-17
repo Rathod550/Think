@@ -65,32 +65,41 @@
     <div class="col-md-6 mt-3">
         <div class="form-group">
             <label>Category: <span class="text-danger">*</span></label><br>
-            {{ Form::select('category_id', ['' => 'Select Category']+$blogCategorys,'', ['class' => 'form-control form-select category', 'data-route' => route('admin.blog.sub-category.get')]) }}
-            <span class="text-danger error-text category_id_err"></span>
+            {{ Form::select('blog_category_id', ['' => 'Select Category']+$blogCategorys, old('blog_category_id'), ['class' => 'form-control form-select category', 'data-route' => route('admin.blog.sub-category.get')]) }}
+            <span class="text-danger error-text blog_category_id_err"></span>
         </div>   
     </div>
     <div class="col-md-6 mt-3">
         <div class="form-group">
             <label>Sub Category:</label><br>
-            {{ Form::select('sub_category_id', ['' => 'Select Sub Category'], '', ['class' => 'form-control form-select subcategory']) }}
-            @error('sub_category_id')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
+            {{ Form::select('blog_sub_category_id', ['' => 'Select Sub Category'], '', ['class' => 'form-control form-select subcategory']) }}
         </div>   
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 mt-3">
-        <div class="form-group">
-            <label>Post Publish Date: </label><br>
-            <input type="date" name="post_publish_date" value="" class="form-control" />
-            <span class="text-danger error-text post_publish_date_err"></span>
-        </div>   
-    </div>
+    @if(!empty($blog) && $blog->is_published == 0)
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label>Post Publish Date: <span class="text-danger">*</span></label><br>
+                <input type="date" name="post_publish_date" value="{{ $blog->post_publish_date ?? '' }}" class="form-control" />
+                <span class="text-danger error-text post_publish_date_err"></span>
+            </div>   
+        </div>
+    @elseif(empty($blog))
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label>Post Publish Date: <span class="text-danger">*</span></label><br>
+                <input type="date" name="post_publish_date" value="{{ $blog->post_publish_date ?? '' }}" class="form-control" />
+                <span class="text-danger error-text post_publish_date_err"></span>
+            </div>   
+        </div>
+    @elseif(!empty($blog) && $blog->is_published == 1)
+        <input type="hidden" name="post_publish_date" value="{{ $blog->post_publish_date ?? '' }}">
+    @endif
     <div class="col-md-6 mt-3">
         <div class="form-group">
             <label>Post Type: <span class="text-danger">*</span></label><br>
-            {{ Form::select('post_type', ['' => 'Select Sub Category', 0 => 'Regular', 1 => 'Good'], old('formate', $slider->formate ?? ''), ['class' => 'form-control form-select']) }}
+            {{ Form::select('post_type', ['' => 'Select Sub Category', 0 => 'Regular', 1 => 'Good'], old('post_type'), ['class' => 'form-control form-select']) }}
             <span class="text-danger error-text post_type_err"></span>
         </div>   
     </div>
@@ -98,7 +107,7 @@
 <div class="row mt-3">
     <div class="col-md-12">
         <label for="tagsInput" class="form-label">Seo Tags: <span class="text-danger">*</span></label>
-        <input name='seo_tags' id="tagsInput" class="form-control" placeholder="Type and press enter" />
+        <input name='seo_tags' id="tagsInput" class="form-control" placeholder="Type and press enter" / value="{{ $blog->seo_tags ?? '' }}">
         <span class="text-danger error-text seo_tags_err"></span>
     </div>
 </div>

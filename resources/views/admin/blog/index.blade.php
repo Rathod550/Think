@@ -15,7 +15,7 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-6">
-						  			<h5 class="card-title">Blog Category</h5>
+						  			<h5 class="card-title">Blogs</h5>
 								</div>
 								<div class="col-md-6">
 									@if(auth()->user()->can('User Blog Category Create'))
@@ -30,9 +30,10 @@
 							        <thead>
 							            <tr>
 							                <th width="10%">No</th>
-							                <th width="30%">Name</th>
-							                <th width="20%">Image</th>
-							                <th width="20%">Status</th>
+							                <th width="10%">User</th>
+							                <th width="30%">Title</th>
+							                <th width="15%">Category</th>
+							                <th width="15%">Sub Category</th>
 							                <th width="20%">Action</th>
 							            </tr>
 							        </thead>
@@ -52,6 +53,26 @@
 
 @section('script')
 	<script type="text/javascript">
-		
+		$(document).ready(function(){
+		    var table = $('.data-table').DataTable({
+		        processing: true,
+		        serverSide: true,
+		        ajax: "{{ route('admin.blog') }}",
+		        columns: [
+		            {
+			            data: null,
+			            name: 'id',
+			            render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1,
+			            orderable: false,
+			            searchable: false
+			        },
+		            {data: 'user', name: 'user'},
+		            {data: 'title', name: 'title'},
+		            {data: 'blog_category', name: 'blog_category'},
+		            {data: 'blog_sub_category', name: 'blog_sub_category'},
+		            {data: 'action', name: 'action', orderable: false, searchable: false},
+		        ]
+		    });
+		});
 	</script>
 @endsection

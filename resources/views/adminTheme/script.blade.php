@@ -29,9 +29,39 @@
 
 <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('description');
-    CKEDITOR.replace('description_hindi');
-    CKEDITOR.replace('description_gujrati');
+    CKEDITOR.replace('description', {
+        allowedContent: true,
+        pasteFilter: null,
+        on: {
+            paste: function(evt) {
+                evt.data.dataValue = evt.data.dataValue
+                    .replace(/<pre>/g, '<p>')
+                    .replace(/<\/pre>/g, '</p>');
+            }
+        }
+    });
+    CKEDITOR.replace('description_hindi', {
+        allowedContent: true,
+        pasteFilter: null,
+        on: {
+            paste: function(evt) {
+                evt.data.dataValue = evt.data.dataValue
+                    .replace(/<pre>/g, '<p>')
+                    .replace(/<\/pre>/g, '</p>');
+            }
+        }
+    });
+    CKEDITOR.replace('description_gujrati', {
+        allowedContent: true,
+        pasteFilter: null,
+        on: {
+            paste: function(evt) {
+                evt.data.dataValue = evt.data.dataValue
+                    .replace(/<pre>/g, '<p>')
+                    .replace(/<\/pre>/g, '</p>');
+            }
+        }
+    });
 </script>
 
 <script src="https://malsup.github.io/jquery.form.js"></script>

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->date('post_publish_date')->nullable();
             $table->tinyInteger('is_published')->default(0);
             $table->integer('blog_category_id')->nullable();
+            $table->integer('blog_sub_category_id')->nullable();
             $table->string('slug')->nullable();
             $table->longText('seo_tags')->nullable();
             $table->tinyInteger('post_type')->nullable();

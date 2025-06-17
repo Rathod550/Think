@@ -24,6 +24,9 @@ function getSubcategory(value, url){
         },
         success: function(data) {
             $(".subcategory").html(data.view);
+            if(subCategoryId != ''){
+                $(".subcategory").val(subCategoryId).trigger('change');
+            }
         },
     });
 }
@@ -59,4 +62,12 @@ $(document).on("click",".save-blog-btn",function(e){
     $(this).attr("disabled", true);
     $(this).html('<i class="fa fa-spinner fa-spin"></i> Save.');
     $(this).parents("form").ajaxSubmit(blog);
+});
+
+$(document).ready(function(){
+    if($(".category").val() != ""){
+        var value = $(".category").val();
+        var url = $(".category").data('route');
+        getSubcategory(value, url);
+    }
 });

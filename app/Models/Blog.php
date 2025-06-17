@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Blog extends Model
 {
@@ -32,8 +33,24 @@ class Blog extends Model
         'post_publish_date',
         'is_published',
         'blog_category_id',
+        'blog_sub_category_id',
         'slug',
         'seo_tags',
         'post_type',
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(BlogCategory::class, 'blog_category_id', 'id');
+    }
+
+    public function subCategory(): BelongsTo
+    {
+        return $this->belongsTo(BlogCategory::class, 'blog_sub_category_id', 'id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'admin_id', 'id');
+    }
 }

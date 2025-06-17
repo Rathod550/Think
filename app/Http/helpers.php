@@ -115,3 +115,11 @@ function getLanguage($text, $language){
     $language = GoogleTranslate::trans($text, $language);
     return $language;
 }
+
+function getDateYMDToDMY($date)
+{
+    if ($date == '0000-00-00 00:00:00') {
+        return '';
+    }
+    return Carbon::parse($date)->format('d/m/Y');
+}
