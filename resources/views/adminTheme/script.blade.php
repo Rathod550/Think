@@ -27,4 +27,11 @@
     new Tagify(input);
 </script>
 
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description');
+    CKEDITOR.replace('description_hindi');
+    CKEDITOR.replace('description_gujrati');
+</script>
 
+<script src="https://malsup.github.io/jquery.form.js"></script>

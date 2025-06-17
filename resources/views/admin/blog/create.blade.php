@@ -3,7 +3,12 @@
 @section('title', 'Blog Create')
 
 @section('style')
-	
+	<style>
+	    /* Hide CKEditor insecure warning banner */
+	    .cke_notification_warning {
+	        display: none !important;
+	    }
+	</style>	
 @endsection
 
 @section('content')
@@ -36,10 +41,5 @@
 @endsection
 
 @section('script')
-	<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
-	<script>
-	    CKEDITOR.replace('description');
-	    CKEDITOR.replace('description_hindi');
-	    CKEDITOR.replace('description_gujrati');
-	</script>
+	<script src="{{ asset('adminTheme/pageLevel/js/blog/blog.js') }}"></script>
 @endsection

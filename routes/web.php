@@ -146,4 +146,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
 	Route::put('/blogs/{id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
 	Route::delete('/blogs/{id}/delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
+	Route::post('/blogs/sub-category/get', [BlogController::class, 'blogSubCategory'])->name('admin.blog.sub-category.get');
 });

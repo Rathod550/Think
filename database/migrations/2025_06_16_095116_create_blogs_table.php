@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->longText('description_hindi')->nullable();
             $table->longText('description_gujrati')->nullable();
-            $table->dateTime('post_publish_date')->nullable();
+            $table->date('post_publish_date')->nullable();
             $table->tinyInteger('is_published')->default(0);
             $table->integer('blog_category_id')->nullable();
             $table->string('slug')->nullable();
