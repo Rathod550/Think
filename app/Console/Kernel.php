@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // $schedule->command('publish-blog')->dailyAt('05:00');
     }
 
     /**
@@ -24,4 +24,8 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+    // crontab -e
+    // * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+
 }
