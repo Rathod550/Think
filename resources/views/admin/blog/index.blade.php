@@ -18,7 +18,7 @@
 						  			<h5 class="card-title">Blogs</h5>
 								</div>
 								<div class="col-md-6">
-									@if(auth()->user()->can('User Blog Category Create'))
+									@if(auth()->user()->can('User Blog Create'))
 										<a href="{{ route('admin.blog.create') }}" type="button" class="btn btn-success btn-sm mt-3" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i></a>
 									@endif
 								</div>
@@ -29,12 +29,10 @@
 								<table class="table table-bordered data-table table-striped">
 							        <thead>
 							            <tr>
-							                <th width="10%">No</th>
-							                <th width="10%">User</th>
-							                <th width="30%">Title</th>
-							                <th width="15%">Category</th>
-							                <th width="15%">Sub Category</th>
-							                <th width="20%">Action</th>
+							                <th>No</th>
+							                <th>User</th>
+							                <th width="40%">Content</th>
+							                <th>Action</th>
 							            </tr>
 							        </thead>
 							        <tbody>
@@ -67,9 +65,7 @@
 			            searchable: false
 			        },
 		            {data: 'user', name: 'user'},
-		            {data: 'title', name: 'title'},
-		            {data: 'blog_category', name: 'blog_category'},
-		            {data: 'blog_sub_category', name: 'blog_sub_category'},
+		            {data: 'content', name: 'content'},
 		            {data: 'action', name: 'action', orderable: false, searchable: false},
 		        ]
 		    });

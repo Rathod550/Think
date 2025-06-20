@@ -26,7 +26,7 @@ class BlogController extends AdminController
 
                         $btn = '';
 
-                        if(!auth()->user()->can('User Blog Category Edit') && !auth()->user()->can('User Blog Category Delete') && !auth()->user()->can('User Blog Category Sub List')){
+                        if(!auth()->user()->can('User Blog Edit') && !auth()->user()->can('User Blog Delete') && !auth()->user()->can('User Blog View')){
                             $btn .='<span class="text-danger"><i class="fa fa-ban" aria-hidden="true"></i> Access denied</span>';
                         }else{
                             if(auth()->user()->email == 'admin@gmail.com'){
@@ -34,14 +34,14 @@ class BlogController extends AdminController
                                 $btn .= '<a href="'.route('admin.blog.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
                                 $btn .= '<a href="'.route('admin.blog.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.blog.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
                             }else{
-                                if (auth()->user()->can('User Blog Category Sub List')) {
-                                    $btn .= '<a href="'.route('admin.blog.show', [$row->id]).'" class="edit btn btn-dark btn-sm"></a> ';
+                                if (auth()->user()->can('User Blog View')) {
+                                    $btn .= '<a href="'.route('admin.blog.show', [$row->id]).'" class="edit btn btn-dark btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a> ';
                                 }
                                 if($row->admin_id == auth()->user()->id){
-                                    if (auth()->user()->can('User Blog Category Edit')) {
+                                    if (auth()->user()->can('User Blog Edit')) {
                                         $btn .= '<a href="'.route('admin.blog.edit', [$row->id]).'" class="edit btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ';
                                     }
-                                    if (auth()->user()->can('User Blog Category Delete')) {
+                                    if (auth()->user()->can('User Blog Delete')) {
                                         $btn .= '<a href="'.route('admin.blog.delete', [$row->id]).'" class="edit btn btn-danger btn-sm delete-btn" data-route='.route('admin.blog.delete', [$row->id]).'><i class="fa fa-trash" aria-hidden="true"></i></a>';
                                     }
                                 }
@@ -51,17 +51,31 @@ class BlogController extends AdminController
 
                         return $btn;
                     })
-                    ->addColumn('blog_category', function ($row) {
-                        return $row->category->name ?? '';
-                    })
-                    ->addColumn('blog_sub_category', function ($row) {
-                        return $row->subCategory->name ?? '';
-                    })
                     ->addColumn('user', function ($row) {
                         return $row->user->name ?? '';
                     })
+                    ->addColumn('status', function ($row) {
+                        if ($row->is_published == 0) {
+                            return '<span class="badge bg-danger">No</span>';
+                        } else {
+                            return '<span class="badge bg-success">Yes</span>';
+                        }
+                    })
+                    ->addColumn('content', function ($row) {
+                        $table = '<table class="table table-sm mb-0">';
+                        $table .= '<tbody>';
+                        $table .= '<tr><th class="text-nowrap text-secondary" style="width: 70px;">Title</th><td title="' . e($row->title) . '">' . limitText($row->title, 30) . '</td></tr>';
+                        $table .= '<tr><th class="text-nowrap text-secondary">Category</th><td>' . e($row->category->name ?? '-') . '</td></tr>';
+                        $table .= '<tr><th class="text-nowrap text-secondary">Sub Category</th><td>' . e($row->subCategory->name ?? '-') . '</td></tr>';
+                        $table .= '<tr><th class="text-nowrap text-secondary">Post Type</th><td><span class="badge rounded-pill bg-primary small">' . ($row->post_type == 0 ? 'Regular' : 'Good') . '</span></td></tr>';
+                        $table .= '<tr><th class="text-nowrap text-secondary">Is Published</th><td><span class="badge rounded-pill bg-' . ($row->is_published ? 'success' : 'danger') . ' small">' . ($row->is_published ? 'Yes' : 'No') . '</span></td></tr>';
+                        $table .= '</tbody>';
+                        $table .= '</table>';
 
-                    ->rawColumns(['action', 'blog_category', 'blog_sub_category', 'user'])
+                        return $table;
+                    })
+
+                    ->rawColumns(['action', 'status', 'content'])
                     ->make(true);
         }
         return view('admin.blog.index');
@@ -124,6 +138,10 @@ class BlogController extends AdminController
                 }
 
                 Blog::create($data);
+
+                // send notification
+                $message = 'Blog By'.' '.auth()->user()->name.' '.', Blog Title : '.$request->title;
+                sendNotification(0, $message);
 
                 DB::commit();
                 notificationMsg('success','Blog Created Successfully');
@@ -188,7 +206,6 @@ class BlogController extends AdminController
                     $data['image'] = $image;
                 }
 
-                $data['admin_id'] = auth()->user()->id;
                 $data['title'] = $input['title'];
                 $data['description'] = $input['description'];
                 $data['title_hindi'] = $input['title_hindi'];
@@ -209,6 +226,10 @@ class BlogController extends AdminController
                 }
 
                 $blog->update($data);
+
+                // send notification
+                $message = 'Blog By'.' '.auth()->user()->name.' '.', Blog Title : '.$request->title;
+                sendNotification(1, $message);
 
                 DB::commit();
                 notificationMsg('info','Blog Updated Successfully');

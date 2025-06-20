@@ -123,3 +123,8 @@ function getDateYMDToDMY($date)
     }
     return Carbon::parse($date)->format('d/m/Y');
 }
+
+function limitText($text, $limit)
+{
+    return Str::limit($text, $limit);
+}

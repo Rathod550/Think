@@ -271,6 +271,33 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'Front Setting Menu',
             ],
+
+            // Blog Menu
+            [
+                'name'=>'User Blog List',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog',
+            ],
+            [
+                'name'=>'User Blog Create',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog',
+            ],
+            [
+                'name'=>'User Blog Edit',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog',
+            ],
+            [
+                'name'=>'User Blog Delete',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog',
+            ],
+            [
+                'name'=>'User Blog View',
+                'guard_name'=>'web',
+                'group_name'=>'User Blog',
+            ],
             
         ];
 

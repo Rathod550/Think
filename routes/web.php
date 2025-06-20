@@ -140,12 +140,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::post('front-setting/update', [FrontSettingController::class, 'update'])->name('admin.front.setting.update');
 
 	// BlogController
-	Route::get('/blogs', [BlogController::class, 'index'])->name('admin.blog');
-	Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blog.create');
+	Route::get('/blogs', [BlogController::class, 'index'])->name('admin.blog')->middleware('permission:User Blog List');
+	Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blog.create')->middleware('permission:User Blog Create');
 	Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blog.store');
-	Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
+	Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit')->middleware('permission:User Blog Edit');
 	Route::put('/blogs/{id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
-	Route::delete('/blogs/{id}/delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
-	Route::get('/blogs/{id}/show', [BlogController::class, 'show'])->name('admin.blog.show');
+	Route::delete('/blogs/{id}/delete', [BlogController::class, 'delete'])->name('admin.blog.delete')->middleware('permission:User Blog Delete');
+	Route::get('/blogs/{id}/show', [BlogController::class, 'show'])->name('admin.blog.show')->middleware('permission:User Blog View');
 	Route::post('/blogs/sub-category/get', [BlogController::class, 'blogSubCategory'])->name('admin.blog.sub-category.get');
 });

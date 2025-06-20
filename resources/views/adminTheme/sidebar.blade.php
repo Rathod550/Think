@@ -37,12 +37,14 @@
             </li>
         @endif
 
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('admin/blogs*') ? '' : 'collapsed' }}" href="{{ route('admin.blog') }}">
-                <i class="fa fa-list-alt" aria-hidden="true"></i>
-                <span>Blogs</span>
-            </a>
-        </li>
+        @if(auth()->user()->can('User Blog List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/blogs*') ? '' : 'collapsed' }}" href="{{ route('admin.blog') }}">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    <span>Blogs</span>
+                </a>
+            </li>
+        @endif
 
         @if(auth()->user()->can('Slider List'))
             <li class="nav-item">
