@@ -50,4 +50,9 @@ class FrontHomeController extends FrontController
         }
         return view('front.contactUs', compact('frontSetting'));
     }
+
+    public function termsAndConditions()
+    {
+        return view('front.termsAndConditions');
+    }
 }

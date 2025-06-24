@@ -43,6 +43,9 @@
 						<li class="menu-item">
 							<a class="menu-link  {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('contactUs') }}"><div><i class="icon-line-phone-call"></i>Contact Us</div></a>
 						</li>
+						<li class="menu-item">
+							<a class="menu-link  {{ Request::is('terms-and-conditions') ? 'active' : '' }}" href="{{ route('terms.and.conditions') }}"><div><i class="icon-files"></i>Terms & Conditions</div></a>
+						</li>
 					</ul>
 
 				</nav><!-- #primary-menu end -->

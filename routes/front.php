@@ -8,3 +8,4 @@ Route::post('/setLanguage', [LanguageController::class, 'setLanguage'])->name('s
 Route::get('/', [FrontHomeController::class, 'index'])->name('home');
 Route::get('/about-us', [FrontHomeController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contact-us', [FrontHomeController::class, 'contactUs'])->name('contactUs');
+Route::get('/terms-and-conditions', [FrontHomeController::class, 'termsAndConditions'])->name('terms.and.conditions');
