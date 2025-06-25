@@ -46,6 +46,34 @@
 							</div></a>
 						</li>
 						<li class="menu-item">
+							<a class="menu-link" href="#"><div><i class="icon-line-grid"></i>
+								@if(session('language') == 'value_english')
+				                    Category
+				                @elseif(session('language') == 'value_hindi')
+				                    वर्ग
+				                @elseif(session('language') == 'value_gujrati')
+				                    શ્રેણી
+				                @endif
+							</div></a>
+							<ul class="sub-menu-container">
+								@if(!empty($blogCategorys) && $blogCategorys->count() > 0)
+									@foreach($blogCategorys as $key => $value)
+										<li class="menu-item">
+											<a class="menu-link" href="#"><div>
+												@if(session('language') == 'value_english')
+							                        {{ $value->name }}
+							                    @elseif(session('language') == 'value_hindi')
+							                        {{ $value->name_hindi }}
+							                    @elseif(session('language') == 'value_gujrati')
+							                        {{ $value->name_gujrati }}
+							                    @endif
+											</div></a>
+										</li>
+									@endforeach
+								@endif
+							</ul>
+						</li>
+						<li class="menu-item">
 							<a class="menu-link  {{ Request::is('about-us') ? 'active' : '' }}" href="{{ route('aboutUs') }}"><div><i class="icon-line-users"></i>
 								@if(session('language') == 'value_english')
 			                        About Us
