@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ClientSaysController;
 use App\Http\Controllers\Admin\AboutUsSliderController;
 use App\Http\Controllers\Admin\FrontSettingController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,4 +149,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 	Route::delete('/blogs/{id}/delete', [BlogController::class, 'delete'])->name('admin.blog.delete')->middleware('permission:User Blog Delete');
 	Route::get('/blogs/{id}/show', [BlogController::class, 'show'])->name('admin.blog.show')->middleware('permission:User Blog View');
 	Route::post('/blogs/sub-category/get', [BlogController::class, 'blogSubCategory'])->name('admin.blog.sub-category.get');
+
+	// ContactUsController
+	Route::get('contact-us', [ContactUsController::class, 'index'])->name('admin.contact.us')->middleware('permission:Contact Us List');
+	Route::delete('contact-us/{id}/delete', [ContactUsController::class, 'delete'])->name('admin.contact.us.delete')->middleware('permission:Contact Us Delete');
 });

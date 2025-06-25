@@ -149,6 +149,11 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
             'Laravel\\Sail\\' => 13,
             'Laravel\\Prompts\\' => 16,
         ),
+        'J' => 
+        array (
+            'Jenssegers\\Agent\\' => 17,
+            'Jaybizzle\\CrawlerDetect\\' => 24,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -490,6 +495,14 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         array (
             0 => __DIR__ . '/..' . '/laravel/prompts/src',
         ),
+        'Jenssegers\\Agent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jenssegers/agent/src',
+        ),
+        'Jaybizzle\\CrawlerDetect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -613,18 +626,32 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
+        'D' => 
+        array (
+            'Detection' => 
+            array (
+                0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
+            ),
+        ),
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\PublishBlog' => __DIR__ . '/../..' . '/app/Console/Commands/PublishBlog.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\AboutUsSliderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AboutUsSliderController.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\AdminHomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminHomeController.php',
         'App\\Http\\Controllers\\Admin\\BlogCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BlogCategoryController.php',
+        'App\\Http\\Controllers\\Admin\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BlogController.php',
+        'App\\Http\\Controllers\\Admin\\ClientSaysController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ClientSaysController.php',
         'App\\Http\\Controllers\\Admin\\EditPermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/EditPermissionController.php',
+        'App\\Http\\Controllers\\Admin\\FrontSettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FrontSettingController.php',
         'App\\Http\\Controllers\\Admin\\NoteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NoteController.php',
         'App\\Http\\Controllers\\Admin\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NotificationController.php',
+        'App\\Http\\Controllers\\Admin\\OurTeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OurTeamController.php',
         'App\\Http\\Controllers\\Admin\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RoleController.php',
+        'App\\Http\\Controllers\\Admin\\SliderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SliderController.php',
         'App\\Http\\Controllers\\Admin\\TraficEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TraficEmailController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -636,6 +663,7 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Front\\FrontController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/FrontController.php',
         'App\\Http\\Controllers\\Front\\FrontHomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/FrontHomeController.php',
+        'App\\Http\\Controllers\\Front\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/LanguageController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -648,10 +676,16 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Imports\\TraficEmailImport' => __DIR__ . '/../..' . '/app/Imports/TraficEmailImport.php',
+        'App\\Models\\AboutUsSlider' => __DIR__ . '/../..' . '/app/Models/AboutUsSlider.php',
+        'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\BlogCategory' => __DIR__ . '/../..' . '/app/Models/BlogCategory.php',
+        'App\\Models\\ClientSays' => __DIR__ . '/../..' . '/app/Models/ClientSays.php',
+        'App\\Models\\ContactUs' => __DIR__ . '/../..' . '/app/Models/ContactUs.php',
         'App\\Models\\FrontSetting' => __DIR__ . '/../..' . '/app/Models/FrontSetting.php',
         'App\\Models\\Note' => __DIR__ . '/../..' . '/app/Models/Note.php',
         'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
+        'App\\Models\\OurTeam' => __DIR__ . '/../..' . '/app/Models/OurTeam.php',
+        'App\\Models\\Slider' => __DIR__ . '/../..' . '/app/Models/Slider.php',
         'App\\Models\\TraficEmail' => __DIR__ . '/../..' . '/app/Models/TraficEmail.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -810,7 +844,9 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\AboutUsSeeder' => __DIR__ . '/../..' . '/database/seeders/AboutUsSeeder.php',
         'Database\\Seeders\\AdminSeeder' => __DIR__ . '/../..' . '/database/seeders/AdminSeeder.php',
+        'Database\\Seeders\\ContactUsSeeder' => __DIR__ . '/../..' . '/database/seeders/ContactUsSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\FrontSettingSeeder' => __DIR__ . '/../..' . '/database/seeders/FrontSettingSeeder.php',
         'Database\\Seeders\\UserPermissionSeeder' => __DIR__ . '/../..' . '/database/seeders/UserPermissionSeeder.php',
@@ -849,6 +885,7 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
         'Dflydev\\DotAccessData\\Exception\\DataException' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Exception/DataException.php',
@@ -3166,6 +3203,14 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Jaybizzle\\CrawlerDetect\\CrawlerDetect' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/CrawlerDetect.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\AbstractProvider' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/AbstractProvider.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Crawlers' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Crawlers.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Exclusions' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Exclusions.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Headers' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Headers.php',
+        'Jenssegers\\Agent\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Agent.php',
+        'Jenssegers\\Agent\\AgentServiceProvider' => __DIR__ . '/..' . '/jenssegers/agent/src/AgentServiceProvider.php',
+        'Jenssegers\\Agent\\Facades\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Facades/Agent.php',
         'Laravel\\Prompts\\Concerns\\Colors' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Colors.php',
         'Laravel\\Prompts\\Concerns\\Cursor' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Cursor.php',
         'Laravel\\Prompts\\Concerns\\Erase' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Erase.php',
@@ -3815,6 +3860,7 @@ class ComposerStaticInit4127fe065039aa09b2e578a6656b2a7d
         'Matrix\\Operators\\Multiplication' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Multiplication.php',
         'Matrix\\Operators\\Operator' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Operator.php',
         'Matrix\\Operators\\Subtraction' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
+        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',

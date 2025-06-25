@@ -35,16 +35,48 @@
 
 					<ul class="menu-container">
 						<li class="menu-item">
-							<a class="menu-link  {{ Request::is('/') ? 'active' : '' }}" href="{{ route('home') }}"><div><i class="icon-home2"></i>Home</div></a>
+							<a class="menu-link  {{ Request::is('/') ? 'active' : '' }}" href="{{ route('home') }}"><div><i class="icon-home2"></i>
+								@if(session('language') == 'value_english')
+				                    Home
+				                @elseif(session('language') == 'value_hindi')
+				                    घर
+				                @elseif(session('language') == 'value_gujrati')
+				                    ઘર
+				                @endif
+							</div></a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link  {{ Request::is('about-us') ? 'active' : '' }}" href="{{ route('aboutUs') }}"><div><i class="icon-line-users"></i>About Us</div></a>
+							<a class="menu-link  {{ Request::is('about-us') ? 'active' : '' }}" href="{{ route('aboutUs') }}"><div><i class="icon-line-users"></i>
+								@if(session('language') == 'value_english')
+			                        About Us
+			                    @elseif(session('language') == 'value_hindi')
+			                        हमारे बारे में
+			                    @elseif(session('language') == 'value_gujrati')
+			                        અમારા વિશે
+			                    @endif
+							</div></a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link  {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('contactUs') }}"><div><i class="icon-line-phone-call"></i>Contact Us</div></a>
+							<a class="menu-link  {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('contactUs') }}"><div><i class="icon-line-phone-call"></i>
+								@if(session('language') == 'value_english')
+		                            Contact Us
+		                        @elseif(session('language') == 'value_hindi')
+		                            हमसे संपर्क करें
+		                        @elseif(session('language') == 'value_gujrati')
+		                            અમારો સંપર્ક કરો
+		                        @endif
+							</div></a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link  {{ Request::is('terms-and-conditions') ? 'active' : '' }}" href="{{ route('terms.and.conditions') }}"><div><i class="icon-files"></i>Terms & Conditions</div></a>
+							<a class="menu-link  {{ Request::is('terms-and-conditions') ? 'active' : '' }}" href="{{ route('terms.and.conditions') }}"><div><i class="icon-files"></i>
+								@if(session('language') == 'value_english')
+					                Terms And Conditions
+					            @elseif(session('language') == 'value_hindi')
+					                नियम और शर्तें
+					            @elseif(session('language') == 'value_gujrati')
+					                નિયમો અને શરતો
+					            @endif
+							</div></a>
 						</li>
 					</ul>
 

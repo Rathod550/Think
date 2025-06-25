@@ -298,6 +298,18 @@ class UserPermissionSeeder extends Seeder
                 'guard_name'=>'web',
                 'group_name'=>'User Blog',
             ],
+
+            // Contact Us
+            [
+                'name'=>'Contact Us List',
+                'guard_name'=>'web',
+                'group_name'=>'Contact Us',
+            ],
+            [
+                'name'=>'Contact Us Delete',
+                'guard_name'=>'web',
+                'group_name'=>'Contact Us',
+            ],
             
         ];
 

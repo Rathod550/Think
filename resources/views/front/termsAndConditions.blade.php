@@ -40,10 +40,34 @@
 <!-- Page Title -->
 <section id="page-title" class="page-title-mini">
     <div class="container clearfix fadeInRightBig animated" data-animate="fadeInRightBig">
-        <h1 class="mb-0">Terms And Conditions</h1>
+        <h1 class="mb-0">
+            @if(session('language') == 'value_english')
+                Terms And Conditions
+            @elseif(session('language') == 'value_hindi')
+                नियम और शर्तें
+            @elseif(session('language') == 'value_gujrati')
+                નિયમો અને શરતો
+            @endif
+        </h1>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-            <li class="breadcrumb-item active">Terms And Conditions</li>
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">
+                @if(session('language') == 'value_english')
+                    Home
+                @elseif(session('language') == 'value_hindi')
+                    घर
+                @elseif(session('language') == 'value_gujrati')
+                    ઘર
+                @endif
+            </a></li>
+            <li class="breadcrumb-item active">
+                @if(session('language') == 'value_english')
+                    Terms And Conditions
+                @elseif(session('language') == 'value_hindi')
+                    नियम और शर्तें
+                @elseif(session('language') == 'value_gujrati')
+                    નિયમો અને શરતો
+                @endif
+            </li>
         </ol>
     </div>
 </section>

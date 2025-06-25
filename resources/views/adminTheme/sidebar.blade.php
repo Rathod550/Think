@@ -91,6 +91,15 @@
             </li>
         @endif
 
+        @if(auth()->user()->can('Contact Us List'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/contact-us*') ? '' : 'collapsed' }}" href="{{ route('admin.contact.us') }}">
+                    <i class="fa fa-address-book" aria-hidden="true"></i>
+                    <span>Contact Us</span>
+                </a>
+            </li>
+        @endif
+
         @if(auth()->user()->can('User Note List'))
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/notes*') ? '' : 'collapsed' }}" href="{{ route('admin.notes') }}">
