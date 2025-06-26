@@ -12,7 +12,7 @@ class FrontController extends Controller
 
         $blogCategorys = BlogCategory::where('status', 1)->get();
 
-        view()->share('blogCategory', $blogCategorys);
+        view()->share('blogCategorys', $blogCategorys);
         view()->share('frontTheme','frontTheme.default');
     }
 }

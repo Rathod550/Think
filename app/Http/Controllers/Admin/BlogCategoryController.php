@@ -113,6 +113,7 @@ class BlogCategoryController extends AdminController
 
         $request->validate([
             'name' => ['required', 'max:255', Rule::unique('blog_categories', 'name')->ignore($id)->whereNull('deleted_at')],
+            'description_english' => 'required'
         ]);
 
         $image = $category->image ?? '';
@@ -182,11 +183,28 @@ class BlogCategoryController extends AdminController
     {
         $request->validate([
             'name' => ['required', 'max:255' ,Rule::unique('blog_categories', 'name')->whereNull('deleted_at')],
+            'image' => 'required',
+            'description_english' => 'required'
         ]);
 
         $slug = makeSlug($request->name);
 
-        BlogCategory::create(['name'=>$request->name, 'parent_id' => $request->parent_id, 'slug' => $slug]);
+        if ($request->hasFile('image')) {
+            $profile = uploadImagePublic(public_path('category/image'), $request->file('image'));
+            $image = 'category/image/' . $profile;
+        }
+
+        BlogCategory::create([
+            'name'=>$request->name, 
+            'image' => $image ?? '',
+            'slug' => $slug,
+            'parent_id' => $request->parent_id,
+            'name_hindi' => getLanguage($request->name, 'hi'),
+            'name_gujrati' => getLanguage($request->name, 'gu'),
+            'description_english' => $request->description_english,
+            'description_hindi' => getLanguage($request->description_english, 'hi'),
+            'description_gujrati' => getLanguage($request->description_english, 'gu'),
+        ]);
 
         notificationMsg('success','Category Sub Created Successfully');
         return redirect()->route('admin.blog.category.sub', [$request->parent_id]);
@@ -205,11 +223,27 @@ class BlogCategoryController extends AdminController
 
         $request->validate([
             'name' => ['required', 'max:255', Rule::unique('blog_categories', 'name')->ignore($id)->whereNull('deleted_at')],
+            'description_english' => 'required'
         ]);
 
         $slug = makeSlug($request->name);
 
-        $category->update(['name' => $request->name, 'slug' => $slug]);
+        $image = $category->image ?? '';
+        if ($request->hasFile('image')) {
+            $fileName = uploadImagePublic(public_path('category/image'), $request->file('image'));
+            $image = 'category/image/' . $fileName;
+        }
+
+        $category->update([
+            'name' => $request->name, 
+            'image' => $image, 
+            'slug' => $slug,
+            'name_hindi' => getLanguage($request->name, 'hi'),
+            'name_gujrati' => getLanguage($request->name, 'gu'),
+            'description_english' => $request->description_english,
+            'description_hindi' => getLanguage($request->description_english, 'hi'),
+            'description_gujrati' => getLanguage($request->description_english, 'gu'),
+        ]);
 
         notificationMsg('info', 'Category Sub Updated Successfully');
         return redirect()->route('admin.blog.category.sub', [$request->parent_id]);

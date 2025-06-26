@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App;
 use App\Models\FrontSetting;
 use App\Models\BlogCategory;
+use App\Models\Blog;
 use App\Models\Slider;
 use App\Models\OurTeam;
 use App\Models\ClientSays;
@@ -88,5 +89,32 @@ class FrontHomeController extends FrontController
         ContactUs::create($input);
 
         return redirect()->route('contactUs')->with('success', 'Your message has been sent successfully.');
+    }
+
+    public function categories($slug)
+    {
+        $blogCategory = BlogCategory::where('slug', $slug)->first();
+        $blogSubCategorys = BlogCategory::where('parent_id', $blogCategory->id)->get();
+
+        if(!empty($blogSubCategorys) && $blogSubCategorys->count() > 0){
+            return view('front.categories', compact('blogSubCategorys'));
+        }else{
+            return redirect()->route('blogs', ['categories', $blogCategory->slug]);
+        }
+    }
+
+    public function blogs($type = null, $slug = null)
+    {
+        if($type == 'categories'){
+            $blogCategory = BlogCategory::where('slug', $slug)->first();
+            $blogs = Blog::where('blog_category_id', $blogCategory->id)->get();
+        }elseif($type == 'categories'){
+            $blogCategory = BlogCategory::where('slug', $slug)->first();
+            $blogs = Blog::where('blog_sub_category_id', $blogCategory->id)->get();
+        }else{
+            $blogs = Blog::get();
+        }
+        
+        return view('front.blogs', compact('blogs'));
     }
 }

@@ -75,7 +75,7 @@
 <!-- Terms Content -->
 <section id="content">
     <div class="content-wrap">
-        <div class="container clearfix terms-section">
+        <div class="container clearfix terms-section fadeInLeftBig animated" data-animate="fadeInLeftBig">
             @if(session('language') == 'value_english')
                 <div class="terms-title"><i class="icon-line-content-right"></i>Welcome to our blog site!</div>
                 <ol class="terms-list">

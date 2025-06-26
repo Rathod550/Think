@@ -43,7 +43,7 @@
                                     {{ $value->description_english }}
                                 @endif
                             </p>
-                            <button type="button" class="btn btn-outline-light mt-2">{{ $frontSetting['our-blog-categorys-button'][session('language') ?? 'value_english'] }}</button>
+                            <a href="{{ route('blogs', ['sub-categories', $value->slug]) }}" type="button" class="btn btn-outline-light mt-2">{{ $frontSetting['our-blog-categorys-button'][session('language') ?? 'value_english'] }}</a>
                         </div>
                     </div>
                 </div>
