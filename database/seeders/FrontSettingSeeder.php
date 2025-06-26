@@ -34,14 +34,6 @@ class FrontSettingSeeder extends Seeder
                 'value_gujrati' => getLanguage('Lasting change, stakeholders development Angelina Jolie world problem solving progressive. Courageous; social entrepreneurship change; accelerate resolve pursue these aspirations asylum.', 'gu'),
                 'page_name' => 'Home'
             ],
-            [
-                'name' => 'Go to blogs button text',
-                'slug' => 'go-to-blogs-button-text',
-                'value_english' => getLanguage('Check our Services', 'en'),
-                'value_hindi' => getLanguage('Check our Services', 'hi'),
-                'value_gujrati' => getLanguage('Check our Services', 'gu'),
-                'page_name' => 'Home'
-            ],
 
             // why choose us section
             [
@@ -58,14 +50,6 @@ class FrontSettingSeeder extends Seeder
                 'value_english' => getLanguage('Transform, agency working families thinkers who make change happen communities. Developing nations legal aid public sector our ambitions future aid The Elders economic security Rosa.', 'en'),
                 'value_hindi' => getLanguage('Transform, agency working families thinkers who make change happen communities. Developing nations legal aid public sector our ambitions future aid The Elders economic security Rosa.', 'hi'),
                 'value_gujrati' => getLanguage('Transform, agency working families thinkers who make change happen communities. Developing nations legal aid public sector our ambitions future aid The Elders economic security Rosa.', 'gu'),
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'Why choose us button text',
-                'slug' => 'why-choose-us-button-text',
-                'value_english' => getLanguage('READ MORE', 'en'),
-                'value_hindi' => getLanguage('READ MORE', 'hi'),
-                'value_gujrati' => getLanguage('READ MORE', 'gu'),
                 'page_name' => 'Home'
             ],
 
@@ -86,14 +70,6 @@ class FrontSettingSeeder extends Seeder
                 'value_gujrati' => getLanguage('Frontline respond, visionary collaborative cities advancement overcome injustice, UNHCR public-private partnerships cause. Giving, country educate rights-based approach; leverage disrupt solution.', 'gu'),
                 'page_name' => 'Home'
             ],
-            [
-                'name' => 'Our mission button text',
-                'slug' => 'our-mission-button-text',
-                'value_english' => getLanguage('READ MORE', 'en'),
-                'value_hindi' => getLanguage('READ MORE', 'hi'),
-                'value_gujrati' => getLanguage('READ MORE', 'gu'),
-                'page_name' => 'Home'
-            ],
 
             // OUR MISSION section
             [
@@ -110,14 +86,6 @@ class FrontSettingSeeder extends Seeder
                 'value_english' => getLanguage('Sustainability involvement fundraising campaign connect carbon rights, collaborative cities convener truth. Synthesize change lives treatment fluctuation participatory monitoring underprivileged equal.', 'en'),
                 'value_hindi' => getLanguage('Sustainability involvement fundraising campaign connect carbon rights, collaborative cities convener truth. Synthesize change lives treatment fluctuation participatory monitoring underprivileged equal.', 'hi'),
                 'value_gujrati' => getLanguage('Sustainability involvement fundraising campaign connect carbon rights, collaborative cities convener truth. Synthesize change lives treatment fluctuation participatory monitoring underprivileged equal.', 'gu'),
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => 'What you get button text',
-                'slug' => 'what-you-get-button-text',
-                'value_english' => getLanguage('READ MORE', 'en'),
-                'value_hindi' => getLanguage('READ MORE', 'hi'),
-                'value_gujrati' => getLanguage('READ MORE', 'gu'),
                 'page_name' => 'Home'
             ],
 
@@ -294,14 +262,6 @@ class FrontSettingSeeder extends Seeder
                 'value_english' => getLanguage("Our Blog Categorys", 'en'),
                 'value_hindi' => getLanguage("Our Blog Categorys", 'hi'),
                 'value_gujrati' => getLanguage("Our Blog Categorys", 'gu'),
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => "Our Blog Categorys Button",
-                'slug' => 'our-blog-categorys-button',
-                'value_english' => getLanguage("View Details", 'en'),
-                'value_hindi' => getLanguage("View Details", 'hi'),
-                'value_gujrati' => getLanguage("View Details", 'gu'),
                 'page_name' => 'Home'
             ],
             [

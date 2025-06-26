@@ -43,7 +43,15 @@
                                     {{ $value->description_english }}
                                 @endif
                             </p>
-                            <a href="{{ route('blogs', ['sub-categories', $value->slug]) }}" type="button" class="btn btn-outline-light mt-2">{{ $frontSetting['our-blog-categorys-button'][session('language') ?? 'value_english'] }}</a>
+                            <a href="{{ route('blogs', ['sub-categories', $value->slug]) }}" type="button" class="btn btn-outline-light mt-2">
+                                @if(session('language') == 'value_english')
+                                    Read More
+                                @elseif(session('language') == 'value_hindi')
+                                    और पढ़ें
+                                @elseif(session('language') == 'value_gujrati')
+                                    વધુ વાંચો
+                                @endif
+                            </a>
                         </div>
                     </div>
                 </div>

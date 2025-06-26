@@ -5,7 +5,15 @@
             <span>{{ $frontSetting['go-to-blogs-title-about-description'][session('language') ?? 'value_english'] }}</span>
         </div>
         <div class="col-12 col-lg-auto mt-4 mt-lg-0">
-            <a href="#" class="button button-large button-circle button-black m-0">{{ $frontSetting['go-to-blogs-title-about-button-text'][session('language') ?? 'value_english'] }}</a>
+            <a href="{{ route('blogs') }}" class="button button-large button-circle button-black m-0">
+                @if(session('language') == 'value_english')
+                    Show Blogs
+                @elseif(session('language') == 'value_hindi')
+                    ब्लॉग दिखाएं
+                @elseif(session('language') == 'value_gujrati')
+                    બ્લોગ્સ બતાવો
+                @endif
+            </a>
         </div>
     </div>
 </div>

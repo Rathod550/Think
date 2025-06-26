@@ -112,14 +112,6 @@ class AboutUsSeeder extends Seeder
                 'page_name' => 'AboutUs'
             ],
             [
-                'name' => 'Go to blogs button text',
-                'slug' => 'go-to-blogs-title-about-button-text',
-                'value_english' => getLanguage('CHECK OUR SERVICES', 'en'),
-                'value_hindi' => getLanguage('CHECK OUR SERVICES', 'hi'),
-                'value_gujrati' => getLanguage('CHECK OUR SERVICES', 'gu'),
-                'page_name' => 'AboutUs'
-            ],
-            [
                 'name' => 'Our Team Title',
                 'slug' => 'our-team-title',
                 'value_english' => getLanguage('CANVAS THINKTANK', 'en'),
