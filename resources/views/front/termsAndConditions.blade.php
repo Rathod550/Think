@@ -6,32 +6,82 @@
 <style>
     .terms-section {
         background: #f9f9f9;
-        padding: 50px 20px;
+        padding: 40px 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+
     .terms-title {
-        font-size: 28px;
-        margin-bottom: 30px;
+        font-size: 24px;
+        margin-bottom: 25px;
         font-weight: 700;
         color: #333;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
     }
+
     .terms-title i {
-        font-size: 30px;
+        font-size: 28px;
         margin-right: 10px;
         color: #00b894;
     }
+
+    .terms-list {
+        padding-left: 20px;
+    }
+
     .terms-list li {
         margin-bottom: 15px;
-        font-size: 17px;
+        font-size: 16px;
         line-height: 1.6;
         color: #444;
     }
+
     .breadcrumb {
         background: none;
         padding-left: 0;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+        .terms-title {
+            font-size: 20px;
+        }
+
+        .terms-title i {
+            font-size: 24px;
+        }
+
+        .terms-list li {
+            font-size: 15px;
+        }
+
+        .terms-section {
+            padding: 30px 15px;
+        }
+
+        #page-title h1 {
+            font-size: 22px;
+        }
+
+        .breadcrumb-item {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .terms-title {
+            font-size: 18px;
+        }
+
+        .terms-list li {
+            font-size: 14px;
+        }
+
+        .terms-section {
+            padding: 25px 10px;
+        }
     }
 </style>
 @endsection
@@ -50,15 +100,17 @@
             @endif
         </h1>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('home') }}">
-                @if(session('language') == 'value_english')
-                    Home
-                @elseif(session('language') == 'value_hindi')
-                    घर
-                @elseif(session('language') == 'value_gujrati')
-                    ઘર
-                @endif
-            </a></li>
+            <li class="breadcrumb-item">
+                <a href="{{ route('home') }}">
+                    @if(session('language') == 'value_english')
+                        Home
+                    @elseif(session('language') == 'value_hindi')
+                        घर
+                    @elseif(session('language') == 'value_gujrati')
+                        ઘર
+                    @endif
+                </a>
+            </li>
             <li class="breadcrumb-item active">
                 @if(session('language') == 'value_english')
                     Terms And Conditions

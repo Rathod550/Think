@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
     public function __construct(){
 
-        $blogCategorys = BlogCategory::where('status', 1)->get();
+        $blogCategorys = BlogCategory::where('status', 1)->whereNull('parent_id')->get();
 
         view()->share('blogCategorys', $blogCategorys);
         view()->share('frontTheme','frontTheme.default');
