@@ -1,7 +1,15 @@
 <div class="section parallax dark mb-0 footer-stick mt-0" style="background-image: url('{{ asset('frontTheme/images/services/home-testi-bg.jpg') }}'); padding: 100px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
 
     <div class="heading-block center">
-        <h3>{{ $frontSetting['what-clients-say'][session('language') ?? 'value_english'] }}</h3>
+        <h3>
+            @if(session('language') == 'value_english')
+                WHAT CLIENTS SAY ?
+            @elseif(session('language') == 'value_hindi') 
+                ग्राहक क्या कहते हैं ?
+            @elseif(session('language') == 'value_gujrati')
+                ગ્રાહકો શું કહે છે ?
+            @endif
+        </h3>
     </div>
 
     <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">

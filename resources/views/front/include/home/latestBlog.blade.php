@@ -1,7 +1,15 @@
 <div class="section mt-6 border-top-0">
     <div class="container clearfix">
         <div class="heading-block center m-0 bounceInLeft animated" data-animate="bounceInLeft">
-            <h3>Latest from the Blog</h3>
+            <h3>
+                @if(session('language') == 'value_english')
+                    Latest from the Blog
+                @elseif(session('language') == 'value_hindi')
+                    ब्लॉग से नवीनतम
+                @elseif(session('language') == 'value_gujrati')
+                    બ્લોગમાંથી નવીનતમ
+                @endif
+            </h3>
         </div>
     </div>
 </div>

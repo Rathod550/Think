@@ -2,7 +2,15 @@
     <div class="container clearfix">
 
         <div class="heading-block topmargin-sm center flip animated" data-animate="flip">
-            <h3>{{ $frontSetting['meet-our-team'][session('language') ?? 'value_english'] }}</h3>
+            <h3>
+                @if(session('language') == 'value_english')
+                    OUR TEAM
+                @elseif(session('language') == 'value_hindi')
+                    हमारी टीम
+                @elseif(session('language') == 'value_gujrati')
+                    અમારી ટીમ
+                @endif
+            </h3>
         </div>
 
         <div class="row">

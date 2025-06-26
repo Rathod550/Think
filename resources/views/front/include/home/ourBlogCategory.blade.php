@@ -1,6 +1,14 @@
 <div class="container clearfix">
     <div class="fancy-title title-center title-border topmargin-sm backInRight animated" data-animate="backInRight">
-            <h3>{{ $frontSetting['our-blog-categorys-title'][session('language') ?? 'value_english'] }}</h3>
+            <h3>
+                @if(session('language') == 'value_english')
+                    Our Blog Categorys
+                @elseif(session('language') == 'value_hindi')
+                    हमारे ब्लॉग श्रेणियाँ
+                @elseif(session('language') == 'value_gujrati')
+                    અમારા બ્લોગ શ્રેણીઓ
+                @endif
+            </h3>
         </div>
 
     <div class="owl-carousel image-carousel carousel-widget flip-card-wrapper clearfix" data-margin="20" data-nav="true" data-pagi="false" data-items-xs="2" data-items-sm="2" data-items-md="2" data-items-lg="3" data-items-xl="3" style="overflow: visible;">

@@ -97,7 +97,7 @@ class FrontHomeController extends FrontController
         $blogSubCategorys = BlogCategory::where('parent_id', $blogCategory->id)->get();
 
         if(!empty($blogSubCategorys) && $blogSubCategorys->count() > 0){
-            return view('front.categories', compact('blogSubCategorys'));
+            return view('front.categories', compact('blogSubCategorys', 'blogCategory'));
         }else{
             return redirect()->route('blogs', ['categories', $blogCategory->slug]);
         }

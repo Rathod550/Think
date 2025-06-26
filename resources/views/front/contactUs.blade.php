@@ -69,13 +69,30 @@
                     <div class="col-lg-6">
 
                         <div class="fancy-title title-border">
-                            <h3>{{ $frontSetting['form-title'][session('language') ?? 'value_english'] }}</h3>
+                            <h3>
+                                @if(session('language') == 'value_english')
+                                    Send us an Email
+                                @elseif(session('language') == 'value_hindi') 
+                                    हमें ईमेल भेजो
+                                @elseif(session('language') == 'value_gujrati')
+                                    અમને ઈમેલ મોકલો
+                                @endif
+                            </h3>
                         </div>
                         <form class="mb-0" action="{{ route('contactUsStore') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-md-4 form-group">
-                                    <label>{{ $frontSetting['form-name'][session('language') ?? 'value_english'] }} <small>*</small></label>
+                                    <label>
+                                        @if(session('language') == 'value_english')
+                                            Name
+                                        @elseif(session('language') == 'value_hindi') 
+                                            नाम
+                                        @elseif(session('language') == 'value_gujrati')
+                                            નામ
+                                        @endif
+                                        <small>*</small>
+                                    </label>
                                     <input type="text" name="name" value="{{ old('name') }}" class="sm-form-control required" />
                                     @error('name')
                                         @if(session('language') == 'value_english')
@@ -89,7 +106,16 @@
                                 </div>
 
                                 <div class="col-md-4 form-group">
-                                    <label>{{ $frontSetting['form-email'][session('language') ?? 'value_english'] }} <small>*</small></label>
+                                    <label>
+                                        @if(session('language') == 'value_english')
+                                            Email
+                                        @elseif(session('language') == 'value_hindi') 
+                                            ईमेल
+                                        @elseif(session('language') == 'value_gujrati')
+                                            ઇમેઇલ
+                                        @endif
+                                        <small>*</small>
+                                    </label>
                                     <input type="email" name="email" value="{{ old('email') }}" class="required email sm-form-control" />
                                     @error('email')
                                         @if(session('language') == 'value_english')
@@ -103,12 +129,29 @@
                                 </div>
 
                                 <div class="col-md-4 form-group">
-                                    <label>{{ $frontSetting['form-mobile-number'][session('language') ?? 'value_english'] }}</label>
+                                    <label>
+                                        @if(session('language') == 'value_english')
+                                            Phone
+                                        @elseif(session('language') == 'value_hindi') 
+                                            फ़ोन
+                                        @elseif(session('language') == 'value_gujrati')
+                                            ફોન
+                                        @endif
+                                    </label>
                                     <input type="text" name="mobile_number" value="{{ old('mobile_number') }}" class="sm-form-control" />
                                 </div>
 
                                 <div class="col-md-12 form-group">
-                                    <label>{{ $frontSetting['form-subject'][session('language') ?? 'value_english'] }} <small>*</small></label>
+                                    <label>
+                                        @if(session('language') == 'value_english')
+                                            Subject
+                                        @elseif(session('language') == 'value_hindi') 
+                                            विषय
+                                        @elseif(session('language') == 'value_gujrati')
+                                            વિષય
+                                        @endif
+                                        <small>*</small>
+                                    </label>
                                     <input type="text" name="subject" value="{{ old('subject') }}" class="required sm-form-control" />
                                     @error('subject')
                                         @if(session('language') == 'value_english')
@@ -122,7 +165,16 @@
                                 </div>
 
                                 <div class="col-12 form-group">
-                                    <label>{{ $frontSetting['form-message'][session('language') ?? 'value_english'] }} <small>*</small></label>
+                                    <label>
+                                        @if(session('language') == 'value_english')
+                                            Message
+                                        @elseif(session('language') == 'value_hindi') 
+                                            संदेश
+                                        @elseif(session('language') == 'value_gujrati')
+                                            સંદેશ
+                                        @endif
+                                        <small>*</small>
+                                    </label>
                                     <textarea name="message" rows="6" class="required sm-form-control">{{ old('message') }}</textarea>
                                     @error('message')
                                         @if(session('language') == 'value_english')

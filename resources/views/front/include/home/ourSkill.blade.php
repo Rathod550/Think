@@ -63,7 +63,15 @@
         <div class="col-lg-6 col-md-6">
 
             <div class="fancy-title title-border">
-                <h4>{{ $frontSetting['progress-bar-section-title'][session('language') ?? 'value_english'] }}</h4>
+                <h4>
+                    @if(session('language') == 'value_english')
+                        Our Skills
+                    @elseif(session('language') == 'value_hindi') 
+                        हमारा कौशल
+                    @elseif(session('language') == 'value_gujrati')
+                        અમારી કુશળતા
+                    @endif
+                </h4>
             </div>
 
             <ul class="skills">

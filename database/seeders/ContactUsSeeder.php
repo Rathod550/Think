@@ -16,54 +16,6 @@ class ContactUsSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Form Title',
-                'slug' => 'form-title',
-                'value_english' => getLanguage('Send us an Email', 'en'),
-                'value_hindi' => getLanguage('Send us an Email', 'hi'),
-                'value_gujrati' => getLanguage('Send us an Email', 'gu'),
-                'page_name' => 'ContactUs'
-            ],
-            [
-                'name' => 'Form Name',
-                'slug' => 'form-name',
-                'value_english' => getLanguage('Name', 'en'),
-                'value_hindi' => getLanguage('Name', 'hi'),
-                'value_gujrati' => getLanguage('Name', 'gu'),
-                'page_name' => 'ContactUs'
-            ],
-            [
-                'name' => 'Form Email',
-                'slug' => 'form-email',
-                'value_english' => getLanguage('Email', 'en'),
-                'value_hindi' => getLanguage('Email', 'hi'),
-                'value_gujrati' => getLanguage('Email', 'gu'),
-                'page_name' => 'ContactUs'
-            ],
-            [
-                'name' => 'Form Mobile Number',
-                'slug' => 'form-mobile-number',
-                'value_english' => getLanguage('Mobile Number', 'en'),
-                'value_hindi' => getLanguage('Mobile Number', 'hi'),
-                'value_gujrati' => getLanguage('Mobile Number', 'gu'),
-                'page_name' => 'ContactUs'
-            ],
-            [
-                'name' => 'Form Subject',
-                'slug' => 'form-subject',
-                'value_english' => getLanguage('Subject', 'en'),
-                'value_hindi' => getLanguage('Subject', 'hi'),
-                'value_gujrati' => getLanguage('Subject', 'gu'),
-                'page_name' => 'ContactUs'
-            ],
-            [
-                'name' => 'Form Message',
-                'slug' => 'form-message',
-                'value_english' => getLanguage('Message', 'en'),
-                'value_hindi' => getLanguage('Message', 'hi'),
-                'value_gujrati' => getLanguage('Message', 'gu'),
-                'page_name' => 'ContactUs'
-            ],
-            [
                 'name' => 'Our Headquarters',
                 'slug' => 'our-headquarters',
                 'value_english' => getLanguage('OUR HEADQUARTERS', 'en'),

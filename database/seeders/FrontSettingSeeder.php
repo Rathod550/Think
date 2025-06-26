@@ -167,14 +167,6 @@ class FrontSettingSeeder extends Seeder
 
             // our skill section
             [
-                'name' => "Progress bar section title",
-                'slug' => 'progress-bar-section-title',
-                'value_english' => getLanguage("Our Skills", 'en'),
-                'value_hindi' => getLanguage("Our Skills", 'hi'),
-                'value_gujrati' => getLanguage("Our Skills", 'gu'),
-                'page_name' => 'Home'
-            ],
-            [
                 'name' => "Progress bar 1 title",
                 'slug' => 'progress-bar-1-title',
                 'value_english' => getLanguage("WORDPRESS", 'en'),
@@ -252,32 +244,6 @@ class FrontSettingSeeder extends Seeder
                 'value_english' => 70,
                 'value_hindi' => 70,
                 'value_gujrati' => 70,
-                'page_name' => 'Home'
-            ],
-
-            // Blog Categorys section
-            [
-                'name' => "Our Blog Categorys title",
-                'slug' => 'our-blog-categorys-title',
-                'value_english' => getLanguage("Our Blog Categorys", 'en'),
-                'value_hindi' => getLanguage("Our Blog Categorys", 'hi'),
-                'value_gujrati' => getLanguage("Our Blog Categorys", 'gu'),
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => "Meet Our Team",
-                'slug' => 'meet-our-team',
-                'value_english' => getLanguage("Our Team", 'en'),
-                'value_hindi' => getLanguage("Our Team", 'hi'),
-                'value_gujrati' => getLanguage("Our Team", 'gu'),
-                'page_name' => 'Home'
-            ],
-            [
-                'name' => "What Clients Say",
-                'slug' => 'what-clients-say',
-                'value_english' => getLanguage("WHAT CLIENTS SAY?", 'en'),
-                'value_hindi' => getLanguage("WHAT CLIENTS SAY?", 'hi'),
-                'value_gujrati' => getLanguage("WHAT CLIENTS SAY?", 'gu'),
                 'page_name' => 'Home'
             ],
         ];
